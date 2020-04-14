@@ -1,7 +1,7 @@
 ##=============================================================================
 ## Initialization
-fill ~ ~-1 ~1 ~-4 ~-5 ~8 smooth_stone
-fill ~ ~ ~1 ~-4 ~5 ~8 air
+fill ~ ~-1 ~1 ~-4 ~-5 ~6 smooth_stone
+fill ~ ~ ~1 ~-4 ~3 ~6 air
 
 
 
@@ -22,95 +22,35 @@ setblock ~-2 ~-3 ~1 hopper
 
 ##=============================================================================
 ## Level -2 (one below floor)
-setblock ~-2 ~-2 ~3 hopper
-setblock ~-2 ~-1 ~3 rail
+setblock ~-2 ~-2 ~3 rail
 
 
 
 ##=============================================================================
 ## Level -1 (floor)
-setblock ~-2 ~ ~3 smooth_stone_slab
 summon hopper_minecart ~-2 ~-1 ~3
-fill ~-1 ~-1 ~5 ~-3 ~-1 ~7 quartz_block
+fill ~-1 ~-1 ~2 ~-3 ~-1 ~4 grass_block
+setblock ~-2 ~-1 ~5 quartz_block
 
 
 
 ##=============================================================================
 ## Level 0 (knees)
-fill ~-1 ~-1 ~5 ~-3 ~-1 ~7 quartz_block
-
-# Glass around chicadees
-setblock ~-2 ~ ~2 glass
-setblock ~-1 ~ ~3 glass
-setblock ~-3 ~ ~3 glass
-
-# Redstone circuit
+fill ~-1 ~ ~2 ~-3 ~ ~4 glass
+setblock ~-2 ~ ~3 air
 setblock ~-2 ~ ~4 dispenser[facing=north]
-setblock ~-2 ~ ~5 comparator[facing=north]
-setblock ~-2 ~ ~6 repeater[facing=north]
-setblock ~-2 ~ ~7 quartz_block
-
-setblock ~-3 ~ ~7 redstone_wire
-setblock ~-3 ~ ~6 redstone_wire
-setblock ~-3 ~ ~5 redstone_wire[east=side]
-
-setblock ~-1 ~ ~7 redstone_wire
-setblock ~-1 ~ ~6 redstone_wire
-setblock ~-1 ~ ~5 repeater[facing=south]
-setblock ~-1 ~ ~4 quartz_block
+setblock ~-2 ~ ~5 redstone_wire
+data merge block ~-2 ~ ~4 {Items:[{Slot:0b,id:"shears",Count:1b},{Slot:1b,id:"shears",Count:1b},{Slot:2b,id:"shears",Count:1b},{Slot:3b,id:"shears",Count:1b},{Slot:4b,id:"shears",Count:1b},{Slot:5b,id:"shears",Count:1b},{Slot:6b,id:"shears",Count:1b},{Slot:7b,id:"shears",Count:1b},{Slot:8b,id:"shears",Count:1b}]}
 
 
 
 ##=============================================================================
 ## Level 1 (head)
-setblock ~-2 ~1 ~4 hopper
-setblock ~-2 ~1 ~2 glass
-setblock ~-1 ~1 ~3 glass
-setblock ~-3 ~1 ~3 glass
-
-setblock ~-2 ~2 ~3 glass
-
-##=============================================================================
-## Level 2 (one above head)
-
-setblock ~-2 ~2 ~3 glass
-setblock ~-1 ~2 ~4 glass
-setblock ~-2 ~2 ~5 glass
-setblock ~-3 ~2 ~4 glass
-
-setblock ~-2 ~2 ~4 white_carpet
-
-
-
-##=============================================================================
-## Level 3
-
-setblock ~-2 ~3 ~3 glass
-setblock ~-1 ~3 ~4 glass
-setblock ~-2 ~3 ~5 glass
-setblock ~-3 ~3 ~4 glass
-
-setblock ~-2 ~3 ~4 tripwire
-
-setblock ~-2 ~4 ~4 glass
+fill ~-1 ~1 ~2 ~-3 ~1 ~4 glass
+setblock ~-2 ~1 ~3 air
 
 
 
 ##=============================================================================
 ## Populate
-summon chicken ~-2 ~2 ~4
-summon chicken ~-2 ~2 ~4
-summon chicken ~-2 ~2 ~4
-summon chicken ~-2 ~2 ~4
-summon chicken ~-2 ~2 ~4
-summon chicken ~-2 ~2 ~4
-summon chicken ~-2 ~2 ~4
-summon chicken ~-2 ~2 ~4
-summon chicken ~-2 ~2 ~4
-summon chicken ~-2 ~2 ~4
-summon chicken ~-2 ~2 ~4
-summon chicken ~-2 ~2 ~4
-
-
-
-setblock ~-2 ~1 ~3 lava
+summon sheep ~-2 ~ ~3
