@@ -1,7 +1,9 @@
 ##=============================================================================
 ## Initialization
-fill ~ ~-1 ~1 ~-19 ~-8 ~22 smooth_stone
-fill ~ ~ ~1 ~-19 ~6 ~22 air
+fill ~ ~-1 ~1 ~-19 ~-8 ~23 smooth_stone
+fill ~ ~ ~1 ~-19 ~6 ~23 air
+fill ~ ~-1 ~ ~-19 ~-1 ~ glowstone
+fill ~ ~-1 ~23 ~-19 ~-1 ~23 glowstone
 
 
 

@@ -17,29 +17,21 @@
 #   slid over 4 slots on right (8 per slot)
 #
 # TODO:
-# - Dispenser circuit
 # - Chests for unfiltered items
-# - Pre-create a bunch of named blocks
 # - Item Frame (summon)
+# - Smelter
 ##=============================================================================
 
 
 
 ##=============================================================================
-## Reset
-
-# Fill underground layers with smooth_stone
-fill ~1 ~-5 ~-1 ~-21 ~-2 ~45 smooth_stone
-
-# Hollow out floor to ceiling (inclusive of floor)
-fill ~1 ~-2 ~-1 ~-21 ~7 ~45 smooth_stone hollow
+## Initializaton
+fill ~ ~-1 ~1 ~-20 ~-5 ~44 smooth_stone
+fill ~ ~ ~1 ~-20 ~7 ~44 air
+fill ~ ~-1 ~1 ~-20 ~-5 ~1 air
 
 # Floor
-fill ~ ~-1 ~ ~-20 ~-1 ~44 glowstone
-
-# Long walls
-fill ~1 ~ ~ ~1 ~6 ~44 glowstone
-fill ~-21 ~ ~ ~-21 ~6 ~44 glowstone
+fill ~ ~-1 ~1 ~-20 ~-1 ~44 glowstone
 
 # Hollow the area for sorter
 fill ~ ~-2 ~5 ~-7 ~-1 ~40 air
