@@ -1,15 +1,6 @@
-gamerule doWeatherCycle false
-gamerule fallDamage false
-gamerule doDaylightCycle false
-weather clear
-time set day
-
 #==============================================================================
 # Post processing requirements:
-# NOTE: This block needs a redstone torch attached to the rail side
-# setblock ~-24 ~-2 ~10 quartz_block
-# - redstone torch at end of railroads
-# - redstone on rail start mechanism
+# - redstone torch on rail start mechanism, both sides
 #==============================================================================
 
 
@@ -56,11 +47,9 @@ fill ~-19 ~-5 ~ ~-19 ~-5 ~47 polished_diorite_stairs[facing=east]
 fill ~-40 ~-7 ~ ~-40 ~-7 ~47 polished_diorite_stairs[facing=west]
 fill ~-40 ~-6 ~ ~-40 ~-6 ~47 air
 fill ~-40 ~-5 ~ ~-40 ~-5 ~47 air
-fill ~-41 ~-6 ~ ~-41 ~-6 47 polished_diorite_stairs[facing=west]
-fill ~-41 ~-5 ~ ~-41 ~-5 47 air[facing=east]
-fill ~-42 ~-5 ~ ~-42 ~-5 47 polished_diorite_stairs[facing=west]
-
-
+fill ~-41 ~-6 ~ ~-41 ~-6 ~47 polished_diorite_stairs[facing=west]
+fill ~-41 ~-5 ~ ~-41 ~-5 ~47 air
+fill ~-42 ~-5 ~ ~-42 ~-5 ~47 polished_diorite_stairs[facing=west]
 
 
 
@@ -68,10 +57,7 @@ fill ~-42 ~-5 ~ ~-42 ~-5 47 polished_diorite_stairs[facing=west]
 # Furnaces
 #==============================================================================
 fill ~-31 ~-4 ~11 ~-31 ~-4 ~43 furnace[facing=west]
-fill ~-31 ~-6 ~11 ~-36 ~-4 ~air
-
-
-
+fill ~-31 ~-6 ~11 ~-36 ~-4 ~43 air
 
 
 
@@ -82,16 +68,16 @@ fill ~-31 ~-6 ~11 ~-36 ~-4 ~air
 
 
 #------------------------------------------------------------------------------
+# Return canal
 #------------------------------------------------------------------------------
-# Retur5 canal
-#------------------------------------------------------------------------------
-# 5 at 5
-
+# Glass at the very start of the item return canal
+fill ~-30 ~-7 ~36 ~-31 ~-7 ~36 glass
 
 # Return canal structure
 fill ~-29 ~-7 ~ ~-29 ~-7 ~35 glass
 fill ~-30 ~-8 ~ ~-31 ~-8 ~35 packed_ice
 fill ~-32 ~-7 ~ ~-32 ~-7 ~35 glass
+fill ~-30 ~-7 ~ ~-31 ~-7 ~ glass
 
 # Return canal water and pressure plates
 fill ~-30 ~-7 ~35 ~-31 ~-7 ~35 water
@@ -721,9 +707,9 @@ fill ~-13 ~1 ~43 ~-24 ~1 ~43 slime_block
 setblock ~-13 ~2 ~43 dropper[facing=up]
 fill ~-13 ~3 ~41 ~-13 ~3 ~42 powered_rail[shape=north_south]
 
-fill ~-13 ~2 ~44 ~-24 ~2 ~44 obsidian
-setblock ~-25 ~1 ~44 obsidian
-setblock ~-12 ~1 ~44 obsidian
+fill ~-13 ~2 ~44 ~-24 ~2 ~44 lime_glazed_terracotta
+setblock ~-25 ~1 ~44 lime_glazed_terracotta
+setblock ~-12 ~1 ~44 lime_glazed_terracotta
 
 
 
@@ -741,9 +727,9 @@ fill ~-48 ~1 ~43 ~-37 ~1 ~43 slime_block
 setblock ~-48 ~2 ~43 dropper[facing=up]
 fill ~-48 ~3 ~41 ~-48 ~3 ~42 powered_rail[shape=north_south]
 
-fill ~-48 ~2 ~44 ~-37 ~2 ~44 obsidian
-setblock ~-36 ~1 ~44 obsidian
-setblock ~-49 ~1 ~44 obsidian
+fill ~-48 ~2 ~44 ~-37 ~2 ~44 lime_glazed_terracotta
+setblock ~-36 ~1 ~44 lime_glazed_terracotta
+setblock ~-49 ~1 ~44 lime_glazed_terracotta
 
 
 
@@ -881,7 +867,7 @@ setblock ~-27 ~-4 ~13 redstone_block
 
 setblock ~-26 ~-5 ~11 quartz_block
 setblock ~-26 ~-4 ~11 redstone_wire
-setblock ~-25 ~-5 ~11 lever
+setblock ~-25 ~-5 ~11 lever[facing=east]
 
 setblock ~-26 ~-6 ~11 sticky_piston[facing=down]
 setblock ~-26 ~-7 ~11 redstone_block
@@ -923,28 +909,28 @@ setblock ~-9 ~-4 ~40 redstone_torch
 # Right
 
 # Beginning portion of the redstone circuit
+setblock ~-34 ~-5 ~11 quartz_block
+setblock ~-34 ~-4 ~11 comparator[facing=east]
+
+setblock ~-34 ~-5 ~12 quartz_block
+setblock ~-34 ~-4 ~12 comparator[facing=south]
+setblock ~-34 ~-4 ~13 redstone_block
+
 setblock ~-35 ~-5 ~11 quartz_block
-setblock ~-35 ~-4 ~11 comparator[facing=west]
+setblock ~-35 ~-4 ~11 redstone_wire
+setblock ~-36 ~-5 ~11 lever[facing=west]
 
-setblock ~-35 ~-5 ~12 quartz_block
-setblock ~-35 ~-4 ~12 comparator[facing=south]
-setblock ~-35 ~-4 ~13 redstone_block
+setblock ~-35 ~-6 ~11 sticky_piston[facing=down]
+setblock ~-35 ~-7 ~11 redstone_block
 
-setblock ~-36 ~-5 ~11 quartz_block
-setblock ~-36 ~-4 ~11 redstone_wire
-setblock ~-37 ~-5 ~11 lever
-
-setblock ~-36 ~-6 ~11 sticky_piston[facing=down]
-setblock ~-36 ~-7 ~11 redstone_block
-
-setblock ~-36 ~-8 ~11 air
+setblock ~-35 ~-8 ~11 air
 
 
 
 # The redstone going from the beginning of the circuit to the bamboo farm
-fill ~-36 ~-10 ~11 ~-52 ~-10 ~11 quartz_block
-fill ~-36 ~-9 ~11 ~-52 ~-9 ~11 redstone_wire
-# fill ~-36 ~-8 ~11 ~-52 ~-8 ~11 air
+fill ~-35 ~-10 ~11 ~-52 ~-10 ~11 quartz_block
+fill ~-35 ~-9 ~11 ~-52 ~-9 ~11 redstone_wire
+# fill ~-35 ~-8 ~11 ~-52 ~-8 ~11 air
 
 fill ~-52 ~-10 ~11 ~-52 ~-10 ~39 quartz_block
 fill ~-52 ~-9 ~11 ~-52 ~-9 ~39 redstone_wire
@@ -953,7 +939,7 @@ fill ~-52 ~-9 ~11 ~-52 ~-9 ~39 redstone_wire
 setblock ~-52 ~-9 ~11 air
 setblock ~-52 ~-9 ~11 redstone_wire
 
-setblock ~-46 ~-9 ~11 repeater[facing=west]
+setblock ~-45 ~-9 ~11 repeater[facing=east]
 setblock ~-52 ~-9 ~13 repeater[facing=north]
 setblock ~-52 ~-9 ~20 repeater[facing=north]
 setblock ~-52 ~-9 ~30 repeater[facing=north]
