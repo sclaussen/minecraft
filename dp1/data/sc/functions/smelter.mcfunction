@@ -1,26 +1,114 @@
-##=============================================================================
-## Initialization
-fill ~ ~-9 ~ ~-62 ~8 ~60 air
+gamerule doWeatherCycle false
+gamerule fallDamage false
+gamerule doDaylightCycle false
+weather clear
+time set day
+
+#==============================================================================
+# Post processing requirements:
+# NOTE: This block needs a redstone torch attached to the rail side
+# setblock ~-24 ~-2 ~10 quartz_block
+# - redstone torch at end of railroads
+# - redstone on rail start mechanism
+#==============================================================================
+
+
+
+#==============================================================================
+# Initialization
+#==============================================================================
+
+# Dig out the entire working space (Depth/Height: -12/3, Wide/Deep: 62/53)
+fill ~ ~-12 ~ ~-62 ~3 ~10 air
+fill ~ ~-12 ~11 ~-62 ~3 ~20 air
+fill ~ ~-12 ~21 ~-62 ~3 ~30 air
+fill ~ ~-12 ~31 ~-62 ~3 ~40 air
+fill ~ ~-12 ~41 ~-62 ~3 ~53 air
+
+# Put stone in the bottom 5 levels (-4 to -8)
+fill ~ ~-12 ~ ~-62 ~-5 ~10 smooth_stone
+fill ~ ~-12 ~11 ~-62 ~-5 ~20 smooth_stone
+fill ~ ~-12 ~21 ~-62 ~-5 ~30 smooth_stone
+fill ~ ~-12 ~31 ~-62 ~-5 ~40 smooth_stone
+fill ~ ~-12 ~41 ~-62 ~-5 ~53 smooth_stone
+
+# Create a floor on the left and right sides
+fill ~ ~-1 ~1 ~-5 ~-3 ~53 glowstone
+fill ~-56 ~-1 ~-7 ~-61 ~-3 ~53 glowstone
+fill ~ ~-1 ~51 ~-61 ~-3 ~53 glowstone
+
+# Add a strip of glowstone across the whole front side
 fill ~ ~-1 ~-4 ~-62 ~-1 ~ glowstone
-fill ~-20 ~-7 ~ ~-40 ~7 ~45 air
+
+# Carve out the smelter region completely
+fill ~-22 ~-4 ~ ~-39 ~-7 ~47 air
+fill ~-27 ~-8 ~ ~-34 ~-8 ~47 glowstone
+
+# Left steps down
+fill ~-21 ~-7 ~ ~-21 ~-7 ~47 polished_diorite_stairs[facing=east]
+fill ~-21 ~-6 ~ ~-21 ~-6 ~47 air
+fill ~-21 ~-5 ~ ~-21 ~-5 ~47 air
+fill ~-20 ~-6 ~ ~-20 ~-6 ~47 polished_diorite_stairs[facing=east]
+fill ~-20 ~-5 ~ ~-20 ~-5 ~47 air
+fill ~-19 ~-5 ~ ~-19 ~-5 ~47 polished_diorite_stairs[facing=east]
+
+# Right steps down
+fill ~-40 ~-7 ~ ~-40 ~-7 ~47 polished_diorite_stairs[facing=west]
+fill ~-40 ~-6 ~ ~-40 ~-6 ~47 air
+fill ~-40 ~-5 ~ ~-40 ~-5 ~47 air
+fill ~-41 ~-6 ~ ~-41 ~-6 47 polished_diorite_stairs[facing=west]
+fill ~-41 ~-5 ~ ~-41 ~-5 47 air[facing=east]
+fill ~-42 ~-5 ~ ~-42 ~-5 47 polished_diorite_stairs[facing=west]
 
 
-fill ~-20 ~-7 ~ ~-40 ~-7 ~45 smooth_stone
-fill ~-25 ~-7 ~ ~-25 ~-7 ~45 glowstone
-fill ~-36 ~-7 ~ ~-36 ~-7 ~45 glowstone
-
-fill ~-9 ~-5 ~40 ~-48 ~3 ~52 air
 
 
-##=============================================================================
+
+#==============================================================================
 # Furnaces
-fill ~-30 ~-4 ~11 ~-30 ~-4 ~43 furnace[facing=east]
+#==============================================================================
 fill ~-31 ~-4 ~11 ~-31 ~-4 ~43 furnace[facing=west]
+fill ~-31 ~-6 ~11 ~-36 ~-4 ~air
 
 
 
-##=============================================================================
-# Collection System
+
+
+
+#==============================================================================
+# Return system
+#==============================================================================
+
+
+
+#------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
+# Retur5 canal
+#------------------------------------------------------------------------------
+# 5 at 5
+
+
+# Return canal structure
+fill ~-29 ~-7 ~ ~-29 ~-7 ~35 glass
+fill ~-30 ~-8 ~ ~-31 ~-8 ~35 packed_ice
+fill ~-32 ~-7 ~ ~-32 ~-7 ~35 glass
+
+# Return canal water and pressure plates
+fill ~-30 ~-7 ~35 ~-31 ~-7 ~35 water
+fill ~-30 ~-7 ~28 ~-31 ~-7 ~28 stone_pressure_plate
+fill ~-30 ~-7 ~27 ~-31 ~-7 ~27 water
+fill ~-30 ~-7 ~20 ~-31 ~-7 ~20 stone_pressure_plate
+fill ~-30 ~-7 ~19 ~-31 ~-7 ~19 water
+fill ~-30 ~-7 ~15 ~-31 ~-7 ~15 stone_pressure_plate
+fill ~-30 ~-7 ~14 ~-31 ~-7 ~14 water
+fill ~-30 ~-7 ~9 ~-31 ~-7 ~9 stone_pressure_plate
+fill ~-30 ~-7 ~8 ~-31 ~-7 ~8 water
+
+
+
+#------------------------------------------------------------------------------
+# Return hoppers and redstone circuits
+#------------------------------------------------------------------------------
 
 # Hoppers for catching smelted items from the furnaces
 fill ~-30 ~-5 ~11 ~-31 ~-5 ~11 hopper
@@ -40,7 +128,7 @@ fill ~-31 ~-5 ~36 ~-31 ~-5 ~43 hopper[facing=north]
 
 
 
-# Redstone circuit
+# Return hopper redstone circuit
 setblock ~-30 ~-6 ~11 dropper[facing=down]
 
 fill ~-27 ~-7 ~10 ~-29 ~-7 ~12 quartz_block
@@ -61,7 +149,7 @@ setblock ~-29 ~-6 ~10 repeater[facing=east]
 
 
 
-# Redstone circuit
+# Return hopper redstone circuit
 setblock ~-30 ~-6 ~19 dropper[facing=down]
 
 fill ~-27 ~-7 ~18 ~-29 ~-7 ~20 quartz_block
@@ -82,7 +170,7 @@ setblock ~-29 ~-6 ~18 repeater[facing=east]
 
 
 
-# Redstone circuit
+# Return hopper redstone circuit
 setblock ~-30 ~-6 ~27 dropper[facing=down]
 
 fill ~-27 ~-7 ~26 ~-29 ~-7 ~28 quartz_block
@@ -103,7 +191,7 @@ setblock ~-29 ~-6 ~26 repeater[facing=east]
 
 
 
-# Redstone circuit
+# Return hopper redstone circuit
 setblock ~-30 ~-6 ~35 dropper[facing=down]
 
 fill ~-27 ~-7 ~34 ~-29 ~-7 ~36 quartz_block
@@ -124,7 +212,7 @@ setblock ~-29 ~-6 ~34 repeater[facing=east]
 
 
 
-# Redstone circuit
+# Return hopper redstone circuit
 setblock ~-31 ~-6 ~11 dropper[facing=down]
 
 fill ~-34 ~-7 ~10 ~-32 ~-7 ~12 quartz_block
@@ -145,7 +233,7 @@ setblock ~-32 ~-6 ~10 repeater[facing=east]
 
 
 
-# Redstone circuit
+# Return hopper redstone circuit
 setblock ~-31 ~-6 ~19 dropper[facing=down]
 
 fill ~-34 ~-7 ~18 ~-32 ~-7 ~20 quartz_block
@@ -166,7 +254,7 @@ setblock ~-32 ~-6 ~18 repeater[facing=east]
 
 
 
-# Redstone circuit
+# Return hopper redstone circuit
 setblock ~-31 ~-6 ~27 dropper[facing=down]
 
 fill ~-34 ~-7 ~26 ~-32 ~-7 ~28 quartz_block
@@ -187,7 +275,7 @@ setblock ~-32 ~-6 ~26 repeater[facing=east]
 
 
 
-# Redstone circuit
+# Return hopper redstone circuit
 setblock ~-31 ~-6 ~35 dropper[facing=down]
 
 fill ~-34 ~-7 ~34 ~-32 ~-7 ~36 quartz_block
@@ -208,163 +296,168 @@ setblock ~-32 ~-6 ~34 repeater[facing=east]
 
 
 
-# Add water underneath
-fill ~-30 ~-7 ~ ~-31 ~-7 ~35 air
-fill ~-30 ~-8 ~ ~-31 ~-8 ~35 packed_ice
-
-fill ~-30 ~-7 ~35 ~-31 ~-7 ~35 water
-fill ~-30 ~-7 ~28 ~-31 ~-7 ~28 stone_pressure_plate
-fill ~-30 ~-7 ~27 ~-31 ~-7 ~27 water
-fill ~-30 ~-7 ~20 ~-31 ~-7 ~20 stone_pressure_plate
-fill ~-30 ~-7 ~19 ~-31 ~-7 ~19 water
-fill ~-30 ~-7 ~12 ~-31 ~-7 ~12 stone_pressure_plate
-fill ~-30 ~-7 ~11 ~-31 ~-7 ~11 water
+#==============================================================================
+# Input system
+#==============================================================================
 
 
 
-##=============================================================================
-## Input for items to smelt
+#------------------------------------------------------------------------------
+# Item input hoppers
+#------------------------------------------------------------------------------
 fill ~-30 ~-3 ~11 ~-31 ~-3 ~43 hopper
 
 
 
-##=============================================================================
-## Fuel input
-fill ~-29 ~-4 ~11 ~-29 ~-4 ~43 hopper[facing=west]
-fill ~-32 ~-4 ~11 ~-32 ~-4 ~43 hopper[facing=east]
+#------------------------------------------------------------------------------
+# Lava for fuel input overflow
+#------------------------------------------------------------------------------
+
+# Lava overflow Left
+fill ~-29 ~-6 ~9 ~-28 ~-6 ~9 glass
+fill ~-29 ~-5 ~10 ~-28 ~-5 ~10 glass
+fill ~-27 ~-5 ~9 ~-27 ~-3 ~9 glass
+setblock ~-30 ~-5 ~9 glass
+fill ~-29 ~-5 ~8 ~-28 ~-3 ~8 glass
+setblock ~-29 ~-5 ~9 lava
+
+# Lava overflow Right
+fill ~-32 ~-6 ~9 ~-33 ~-6 ~9 glass
+fill ~-32 ~-5 ~10 ~-33 ~-5 ~10 glass
+fill ~-34 ~-5 ~9 ~-34 ~-3 ~9 glass
+setblock ~-31 ~-5 ~9 glass
+fill ~-32 ~-5 ~8 ~-33 ~-3 ~8 glass
+setblock ~-32 ~-5 ~9 lava
 
 
 
-##=============================================================================
-## Prepare the channel for the fuel (ice, bars, ...)
+#------------------------------------------------------------------------------
+# Rail for moving items to furnaces
+#------------------------------------------------------------------------------
+
+# NOTE: This is all pretty order dependent to get rails to line up properly
+
+
+# Home base platform (must be after rails are placed above)
+fill ~-30 ~-3 ~9 ~-31 ~-3 ~10 quartz_block
+fill ~-30 ~-2 ~9 ~-31 ~-2 ~9 quartz_block
 
 
 
-# Left
-
-# Long left hand channel going north/south
-setblock ~-29 ~-4 ~10 packed_ice
-fill ~-28 ~-4 ~10 ~-28 ~-4 ~45 packed_ice
-fill ~-29 ~-3 ~10 ~-29 ~-3 ~43 iron_bars
-fill ~-27 ~-3 ~10 ~-27 ~-5 ~44 glass
-
-# Left hand chests
-setblock ~-29 ~-3 ~44 chest[type=left,facing=east]
-setblock ~-29 ~-3 ~45 chest[type=right,facing=east]
-setblock ~-29 ~-4 ~44 packed_ice
-setblock ~-29 ~-4 ~45 packed_ice
-
-# Left hand east/west channel running under bamboo farm (from left to right)
-setblock ~-12 ~-2 ~45 glass
-setblock ~-12 ~-1 ~45 glass
-fill ~-13 ~-2 ~46 ~-29 ~-2 ~46 glass
-fill ~-14 ~-3 ~45 ~-20 ~-3 ~45 packed_ice
-fill ~-13 ~-2 ~44 ~-27 ~-2 ~44 glass
-
-fill ~-21 ~-3 ~46 ~-29 ~-3 ~46 glass
-fill ~-21 ~-4 ~45 ~-29 ~-4 ~45 packed_ice
-fill ~-21 ~-3 ~44 ~-27 ~-3 ~44 glass
-
-setblock ~-13 ~-2 ~45 water
-setblock ~-21 ~-3 ~45 water
-
-setblock ~-25 ~-3 ~45 stone_pressure_plate
-setblock ~-26 ~-3 ~45 water
-
-setblock ~-28 ~-3 ~39 stone_pressure_plate
-setblock ~-28 ~-3 ~38 water
-
-setblock ~-28 ~-3 ~31 stone_pressure_plate
-setblock ~-28 ~-3 ~30 water
-
-setblock ~-28 ~-3 ~23 stone_pressure_plate
-setblock ~-28 ~-3 ~22 water
-
-setblock ~-28 ~-3 ~15 stone_pressure_plate
-setblock ~-28 ~-3 ~14 water
-
-
-
-# Right
-fill ~-33 ~-4 ~10 ~-33 ~-4 ~44 packed_ice
-fill ~-32 ~-4 ~44 ~-32 ~-4 ~45 packed_ice
-fill ~-32 ~-4 ~45 ~-36 ~-4 ~45 packed_ice
-fill ~-32 ~-3 ~46 ~-36 ~-3 ~46 glass
-setblock ~-32 ~-3 ~44 chest[type=right,facing=west]
-setblock ~-32 ~-3 ~45 chest[type=left,facing=west]
-fill ~-32 ~-3 ~10 ~-32 ~-3 ~43 iron_bars
-fill ~-34 ~-3 ~10 ~-34 ~-5 ~44 glass
-setblock ~-32 ~-4 ~10 packed_ice
-
-
-
-##=============================================================================
-## Home base platform
-fill ~-30 ~-5 ~9 ~-31 ~-3 ~10 smooth_stone
-fill ~-30 ~-2 ~9 ~-31 ~-2 ~9 smooth_stone
-
-
-
-##=============================================================================
-## Rail for moving items to furnaces
-
-# Left side
+# Powered and detector rails (left and right both)
 fill ~-30 ~-2 ~10 ~-30 ~-2 ~43 powered_rail
+fill ~-31 ~-2 ~10 ~-31 ~-2 ~43 powered_rail
+
 setblock ~-30 ~-2 ~10 detector_rail
 setblock ~-30 ~-1 ~9 detector_rail
-setblock ~-30 ~-2 ~44 smooth_stone
 
-# Right side
-fill ~-31 ~-2 ~10 ~-31 ~-2 ~43 powered_rail
 setblock ~-31 ~-2 ~10 detector_rail
 setblock ~-31 ~-1 ~9 detector_rail
-setblock ~-31 ~-2 ~44 smooth_stone
 
-# Redstone blocks to power the rails
-fill ~-30 ~-1 ~19 ~-31 ~-1 ~19 redstone_block
-fill ~-30 ~-1 ~27 ~-31 ~-1 ~27 redstone_block
-fill ~-30 ~-1 ~35 ~-31 ~-1 ~35 redstone_block
+setblock ~-30 ~-2 ~44 quartz_block
+setblock ~-31 ~-2 ~44 quartz_block
 
 
 
-##=============================================================================
-## Gate and its redstone circuit
+# Redstone blocks over power rails
+fill ~-30 ~-1 ~20 ~-31 ~-1 ~20 redstone_block
+fill ~-30 ~-1 ~30 ~-31 ~-1 ~30 redstone_block
+fill ~-30 ~-1 ~40 ~-31 ~-1 ~40 redstone_block
+
+
+
+#------------------------------------------------------------------------------
+# Hopper minecart gate and its redstone circuit
+#------------------------------------------------------------------------------
 
 # Oak fence
 fill ~-30 ~-1 ~11 ~-31 ~-1 ~11 oak_fence
 
 
-# Left
-fill ~-25 ~-3 ~10 ~-29 ~-3 ~10 quartz_block
-setblock ~-29 ~-2 ~10 comparator[facing=west]
-fill ~-28 ~-2 ~8 ~-25 ~-2 ~10 repeater[facing=west]
 
+# Redstone circuit
+
+# Left
+setblock ~-29 ~-3 ~10 quartz_slab[type=top]
+setblock ~-29 ~-2 ~10 comparator[facing=west]
+
+setblock ~-28 ~-3 ~10 quartz_slab[type=top]
+setblock ~-28 ~-2 ~10 repeater[facing=west,delay=4]
+
+setblock ~-27 ~-3 ~10 quartz_block
+setblock ~-27 ~-2 ~10 repeater[facing=west,delay=4]
+
+setblock ~-26 ~-3 ~10 quartz_block
+setblock ~-26 ~-2 ~10 repeater[facing=west,delay=4]
+
+setblock ~-25 ~-3 ~10 quartz_block
+setblock ~-25 ~-2 ~10 repeater[facing=west,delay=4]
+
+# NOTE: This block needs a redstone torch attached to the rail side
 setblock ~-24 ~-2 ~10 quartz_block
 
-fill ~-24 ~-1 ~11 ~-27 ~-1 ~11 quartz_block
-fill ~-24 ~ ~11 ~-27 ~ ~11 repeater[facing=east]
+setblock ~-24 ~-1 ~11 quartz_block
+setblock ~-24 ~ ~11 redstone_wire
+
+setblock ~-25 ~-1 ~11 quartz_block
+setblock ~-25 ~ ~11 repeater[facing=east,delay=2]
+
+setblock ~-26 ~-1 ~11 quartz_block
+setblock ~-26 ~ ~11 repeater[facing=east,delay=4]
+
+setblock ~-27 ~-1 ~11 quartz_block
+setblock ~-27 ~ ~11 repeater[facing=east,delay=4]
+
 setblock ~-28 ~-1 ~11 sticky_piston[facing=west]
 
 
 # Right
-fill ~-36 ~-3 ~10 ~-32 ~-3 ~10 quartz_block
+setblock ~-32 ~-3 ~10 quartz_slab[type=top]
 setblock ~-32 ~-2 ~10 comparator[facing=east]
-fill ~-33 ~-2 ~8 ~-36 ~-2 ~10 repeater[facing=east]
 
+setblock ~-33 ~-3 ~10 quartz_slab[type=top]
+setblock ~-33 ~-2 ~10 repeater[facing=east,delay=4]
+
+setblock ~-34 ~-3 ~10 quartz_block
+setblock ~-34 ~-2 ~10 repeater[facing=east,delay=4]
+
+setblock ~-35 ~-3 ~10 quartz_block
+setblock ~-35 ~-2 ~10 repeater[facing=east,delay=4]
+
+setblock ~-36 ~-3 ~10 quartz_block
+setblock ~-36 ~-2 ~10 repeater[facing=east,delay=4]
+
+# NOTE: This block needs a redstone torch attached to the rail side
 setblock ~-37 ~-2 ~10 quartz_block
 
-fill ~-37 ~-1 ~11 ~-34 ~-1 ~11 quartz_block
-fill ~-37 ~ ~11 ~-34 ~ ~11 repeater[facing=west]
+setblock ~-37 ~-1 ~11 quartz_block
+setblock ~-37 ~ ~11 redstone_wire
+
+setblock ~-36 ~-1 ~11 quartz_block
+setblock ~-36 ~ ~11 repeater[facing=west,delay=2]
+
+setblock ~-35 ~-1 ~11 quartz_block
+setblock ~-35 ~ ~11 repeater[facing=west,delay=4]
+
+setblock ~-34 ~-1 ~11 quartz_block
+setblock ~-34 ~ ~11 repeater[facing=west,delay=4]
+
 setblock ~-33 ~-1 ~11 sticky_piston[facing=east]
 
+
+
+#------------------------------------------------------------------------------
+# Chest and hopper minecarts
+#------------------------------------------------------------------------------
 
 # Chest
 setblock ~-30 ~-1 ~10 chest[type=right]
 setblock ~-31 ~-1 ~10 chest[type=left]
 
 
-# Replace extra extraneous detector rails with blocks
-fill ~-29 ~-1 ~ ~-32 ~-1 ~9 smooth_stone
+# Remove the now extraneous detector rails
+setblock ~-30 ~-1 ~9 air
+setblock ~-31 ~-1 ~9 air
 
 
 # Add hopper minecarts
@@ -372,12 +465,87 @@ summon hopper_minecart ~-30 ~-2 ~10
 summon hopper_minecart ~-31 ~-2 ~10
 
 
+# Platform
+fill ~-24 ~-1 ~1 ~-37 ~-1 ~9 glass
+fill ~-24 ~-1 ~10 ~-29 ~ ~10 glass
+fill ~-32 ~-1 ~10 ~-37 ~ ~10 glass
+fill ~-29 ~ ~11 ~-32 ~ ~11 glass
 
 
-##=============================================================================
-##
 
 
+#==============================================================================
+# Fuel input system
+#==============================================================================
+
+
+
+# Fuel input hoppers
+fill ~-29 ~-4 ~11 ~-29 ~-4 ~43 hopper[facing=west]
+fill ~-32 ~-4 ~11 ~-32 ~-4 ~43 hopper[facing=east]
+
+
+
+# Left input channel
+
+# North/south left hand fuel channel feeding the furnaces
+setblock ~-29 ~-4 ~10 packed_ice
+fill ~-28 ~-4 ~10 ~-28 ~-4 ~45 packed_ice
+fill ~-29 ~-3 ~11 ~-29 ~-3 ~43 iron_bars
+fill ~-27 ~-3 ~11 ~-27 ~-3 ~44 glass
+
+# Left hand corner chests
+setblock ~-29 ~-3 ~44 chest[type=left,facing=east]
+setblock ~-29 ~-3 ~45 chest[type=right,facing=east]
+setblock ~-29 ~-4 ~44 packed_ice
+setblock ~-29 ~-4 ~45 packed_ice
+
+# East/west left hand fuel channel running under bamboo farm (lower level)
+fill ~-13 ~-2 ~46 ~-29 ~-2 ~46 glass
+fill ~-13 ~-3 ~45 ~-20 ~-3 ~45 packed_ice
+fill ~-13 ~-2 ~44 ~-27 ~-2 ~44 glass
+
+# East/west left hand fuel channel running under bamboo farm (upper level)
+fill ~-14 ~-3 ~46 ~-29 ~-3 ~46 glass
+fill ~-14 ~-4 ~45 ~-29 ~-4 ~45 packed_ice
+fill ~-14 ~-3 ~44 ~-27 ~-3 ~44 glass
+
+
+
+# Right input channel
+
+# North/south right hand fuel channel feeding the furnaces
+setblock ~-32 ~-4 ~10 packed_ice
+fill ~-33 ~-4 ~10 ~-33 ~-4 ~45 packed_ice
+fill ~-32 ~-3 ~11 ~-32 ~-3 ~43 iron_bars
+fill ~-34 ~-3 ~11 ~-34 ~-3 ~44 glass
+
+# Left hand corner chests
+setblock ~-32 ~-3 ~44 chest[type=right,facing=west]
+setblock ~-32 ~-3 ~45 chest[type=left,facing=west]
+setblock ~-32 ~-4 ~44 packed_ice
+setblock ~-32 ~-4 ~45 packed_ice
+
+# East/west left hand fuel channel running under bamboo farm (lower level)
+fill ~-48 ~-2 ~46 ~-32 ~-2 ~46 glass
+fill ~-48 ~-3 ~45 ~-41 ~-3 ~45 packed_ice
+fill ~-48 ~-2 ~44 ~-34 ~-2 ~44 glass
+
+# East/west left hand fuel channel running under bamboo farm (upper level)
+fill ~-47 ~-3 ~46 ~-32 ~-3 ~46 glass
+fill ~-47 ~-4 ~45 ~-32 ~-4 ~45 packed_ice
+fill ~-47 ~-3 ~44 ~-34 ~-3 ~44 glass
+
+
+
+#==============================================================================
+# Bamboo farms
+#==============================================================================
+
+
+#------------------------------------------------------------------------------
+# Primary foundation and walls
+#------------------------------------------------------------------------------
 fill ~-13 ~-1 ~43 ~-24 ~-1 ~44 dirt
 fill ~-37 ~-1 ~43 ~-48 ~-1 ~44 dirt
 
@@ -429,19 +597,18 @@ setblock ~-38 ~-1 ~47 sticky_piston[facing=up]
 
 
 
-##=============================================================================
-## Railroad
-
-
+#------------------------------------------------------------------------------
+# Lower level observers and power system
+#------------------------------------------------------------------------------
 
 # Left
-fill ~-13 ~-4 ~47 ~-23 ~-4 ~47 smooth_stone
+fill ~-13 ~-4 ~47 ~-23 ~-4 ~47 quartz_block
 fill ~-13 ~-3 ~47 ~-23 ~-3 ~47 powered_rail
 
-fill ~-13 ~-4 ~41 ~-23 ~-4 ~41 smooth_stone
+fill ~-13 ~-4 ~41 ~-23 ~-4 ~41 quartz_block
 fill ~-13 ~-3 ~41 ~-23 ~-3 ~41 powered_rail
 
-fill ~-13 ~-4 ~41 ~-13 ~-4 ~47 smooth_stone
+fill ~-13 ~-4 ~41 ~-13 ~-4 ~47 quartz_block
 fill ~-13 ~-3 ~41 ~-13 ~-3 ~45 powered_rail
 
 setblock ~-14 ~-3 ~41 observer[facing=east]
@@ -459,19 +626,17 @@ setblock ~-11 ~-3 ~41 dropper[facing=up]
 setblock ~-11 ~-3 ~40 observer[facing=west]
 setblock ~-10 ~-3 ~40 slime_block
 setblock ~-9 ~-3 ~40 sticky_piston[facing=west]
-setblock ~-9 ~-3 ~39 smooth_stone
-# setblock ~-9 ~-3 ~38 lever
 
 
 
 # Right
-fill ~-38 ~-4 ~47 ~-48 ~-4 ~47 smooth_stone
+fill ~-38 ~-4 ~47 ~-48 ~-4 ~47 quartz_block
 fill ~-38 ~-3 ~47 ~-48 ~-3 ~47 powered_rail
 
-fill ~-38 ~-4 ~41 ~-48 ~-4 ~41 smooth_stone
+fill ~-38 ~-4 ~41 ~-48 ~-4 ~41 quartz_block
 fill ~-38 ~-3 ~41 ~-48 ~-3 ~41 powered_rail
 
-fill ~-48 ~-4 ~41 ~-48 ~-4 ~47 smooth_stone
+fill ~-48 ~-4 ~41 ~-48 ~-4 ~47 quartz_block
 fill ~-48 ~-3 ~41 ~-48 ~-3 ~45 powered_rail
 
 setblock ~-47 ~-3 ~41 observer[facing=west]
@@ -491,15 +656,12 @@ setblock ~-50 ~-3 ~41 dropper[facing=up]
 setblock ~-50 ~-3 ~40 observer[facing=east]
 setblock ~-51 ~-3 ~40 slime_block
 setblock ~-52 ~-3 ~40 sticky_piston[facing=east]
-setblock ~-52 ~-3 ~39 smooth_stone
-setblock ~-52 ~-3 ~38 lever
 
 
 
-
-
-
-
+#------------------------------------------------------------------------------
+# Upper level observers and power system
+#------------------------------------------------------------------------------
 
 setblock ~-14 ~1 ~41 observer[facing=north]
 setblock ~-17 ~1 ~41 observer[facing=north]
@@ -519,34 +681,33 @@ setblock ~-44 ~1 ~47 observer[facing=south]
 setblock ~-41 ~1 ~47 observer[facing=south]
 setblock ~-38 ~1 ~47 observer[facing=south]
 
-setblock ~-14 ~ ~42 smooth_stone
-setblock ~-17 ~ ~42 smooth_stone
-setblock ~-20 ~ ~42 smooth_stone
-setblock ~-23 ~ ~42 smooth_stone
-setblock ~-47 ~ ~42 smooth_stone
-setblock ~-44 ~ ~42 smooth_stone
-setblock ~-41 ~ ~42 smooth_stone
-setblock ~-38 ~ ~42 smooth_stone
+setblock ~-14 ~ ~42 quartz_block
+setblock ~-17 ~ ~42 quartz_block
+setblock ~-20 ~ ~42 quartz_block
+setblock ~-23 ~ ~42 quartz_block
+setblock ~-47 ~ ~42 quartz_block
+setblock ~-44 ~ ~42 quartz_block
+setblock ~-41 ~ ~42 quartz_block
+setblock ~-38 ~ ~42 quartz_block
 
-setblock ~-14 ~ ~46 smooth_stone
-setblock ~-17 ~ ~46 smooth_stone
-setblock ~-20 ~ ~46 smooth_stone
-setblock ~-23 ~ ~46 smooth_stone
-setblock ~-47 ~ ~46 smooth_stone
-setblock ~-44 ~ ~46 smooth_stone
-setblock ~-41 ~ ~46 smooth_stone
-setblock ~-38 ~ ~46 smooth_stone
-
-
+setblock ~-14 ~ ~46 quartz_block
+setblock ~-17 ~ ~46 quartz_block
+setblock ~-20 ~ ~46 quartz_block
+setblock ~-23 ~ ~46 quartz_block
+setblock ~-47 ~ ~46 quartz_block
+setblock ~-44 ~ ~46 quartz_block
+setblock ~-41 ~ ~46 quartz_block
+setblock ~-38 ~ ~46 quartz_block
 
 
 
+#-----------------------------------------------------------------------------
+# Slime pusher
+#-----------------------------------------------------------------------------
 
 
 
-##=============================================================================
-## Slime pusher
-
+# Left
 setblock ~-13 ~-2 ~41 observer[facing=down]
 setblock ~-13 ~-1 ~41 oak_door[hinge=right,half=lower]
 setblock ~-13 ~ ~41 oak_door[facing=south,hinge=right,half=upper]
@@ -566,20 +727,47 @@ setblock ~-12 ~1 ~44 obsidian
 
 
 
+# Right
+setblock ~-48 ~-2 ~41 observer[facing=down]
+setblock ~-48 ~-1 ~41 oak_door[hinge=right,half=lower]
+setblock ~-48 ~ ~41 oak_door[facing=south,hinge=right,half=upper]
+setblock ~-48 ~1 ~41 observer[facing=down]
+setblock ~-48 ~1 ~42 sticky_piston[facing=south]
+setblock ~-48 ~2 ~41 note_block
+setblock ~-48 ~2 ~42 observer[facing=north]
+
+fill ~-48 ~1 ~43 ~-37 ~1 ~43 slime_block
+
+setblock ~-48 ~2 ~43 dropper[facing=up]
+fill ~-48 ~3 ~41 ~-48 ~3 ~42 powered_rail[shape=north_south]
+
+fill ~-48 ~2 ~44 ~-37 ~2 ~44 obsidian
+setblock ~-36 ~1 ~44 obsidian
+setblock ~-49 ~1 ~44 obsidian
 
 
 
-##=============================================================================
-## Populate/Plant
-fill ~-13 ~ ~44 ~-24 ~ ~44 bamboo[age=1]
+#------------------------------------------------------------------------------
+# Plant the bamboo
+#------------------------------------------------------------------------------
+fill ~-13 ~ ~44 ~-24 ~ ~44 bamboo[age=1,stage=1]
+fill ~-48 ~ ~44 ~-37 ~ ~45 bamboo[age=1,stage=1]
 
 
 
-##=============================================================================
-##
+#------------------------------------------------------------------------------
+# Encapsulate the bamboo so it falls into the canal
+#------------------------------------------------------------------------------
 
-fill ~-12 ~ ~46 ~-12 ~1 ~45 lime_stained_glass
+# Left
 
+# On the far left end
+fill ~-12 ~1 ~46 ~-12 ~1 ~45 lime_stained_glass
+fill ~-12 ~ ~46 ~-12 ~ ~44 lime_stained_glass
+fill ~-12 ~-1 ~46 ~-12 ~-1 ~44 lime_stained_glass
+fill ~-12 ~-2 ~46 ~-12 ~-2 ~44 lime_stained_glass
+
+# Along the backside
 fill ~-13 ~ ~46 ~-13 ~1 ~46 lime_stained_glass
 setblock ~-14 ~1 ~46 lime_stained_glass
 
@@ -593,4 +781,194 @@ fill ~-21 ~ ~46 ~-22 ~1 ~46 lime_stained_glass
 setblock ~-23 ~1 ~46 lime_stained_glass
 fill ~-24 ~ ~46 ~-24 ~1 ~46 lime_stained_glass
 
-fill ~-25 ~ ~46 ~-25 ~1 ~45 lime_stained_glass
+# On the far right end
+fill ~-25 ~1 ~46 ~-25 ~1 ~45 lime_stained_glass
+fill ~-25 ~ ~46 ~-25 ~ ~44 lime_stained_glass
+fill ~-25 ~-1 ~46 ~-25 ~-1 ~44 lime_stained_glass
+
+
+
+# Right
+
+# On the far left end
+fill ~-49 ~1 ~46 ~-49 ~1 ~45 lime_stained_glass
+fill ~-49 ~ ~46 ~-49 ~ ~44 lime_stained_glass
+fill ~-49 ~-1 ~46 ~-49 ~-1 ~44 lime_stained_glass
+fill ~-49 ~-2 ~46 ~-49 ~-2 ~44 lime_stained_glass
+
+# Along the backside
+fill ~-48 ~ ~46 ~-48 ~1 ~46 lime_stained_glass
+setblock ~-47 ~1 ~46 lime_stained_glass
+
+fill ~-46 ~ ~46 ~-45 ~1 ~46 lime_stained_glass
+setblock ~-44 ~1 ~46 lime_stained_glass
+
+fill ~-43 ~ ~46 ~-42 ~1 ~46 lime_stained_glass
+setblock ~-41 ~1 ~46 lime_stained_glass
+
+fill ~-40 ~ ~46 ~-39 ~1 ~46 lime_stained_glass
+setblock ~-38 ~1 ~46 lime_stained_glass
+fill ~-37 ~ ~46 ~-37 ~1 ~46 lime_stained_glass
+
+# On the far right end
+fill ~-36 ~1 ~46 ~-36 ~1 ~45 lime_stained_glass
+fill ~-36 ~ ~46 ~-36 ~ ~44 lime_stained_glass
+fill ~-36 ~-1 ~46 ~-36 ~-1 ~44 lime_stained_glass
+
+
+
+#------------------------------------------------------------------------------
+# Fuel input system canal water
+#------------------------------------------------------------------------------
+
+
+
+# Left
+setblock ~-13 ~-2 ~45 water
+setblock ~-21 ~-3 ~45 water
+
+setblock ~-25 ~-3 ~45 stone_pressure_plate
+setblock ~-26 ~-3 ~45 water
+
+setblock ~-28 ~-3 ~39 stone_pressure_plate
+setblock ~-28 ~-3 ~38 water
+
+setblock ~-28 ~-3 ~31 stone_pressure_plate
+setblock ~-28 ~-3 ~30 water
+
+setblock ~-28 ~-3 ~23 stone_pressure_plate
+setblock ~-28 ~-3 ~22 water
+
+setblock ~-28 ~-3 ~15 stone_pressure_plate
+setblock ~-28 ~-3 ~14 water
+
+
+
+# Right
+setblock ~-48 ~-2 ~45 water
+setblock ~-40 ~-3 ~45 water
+
+setblock ~-36 ~-3 ~45 stone_pressure_plate
+setblock ~-35 ~-3 ~45 water
+
+setblock ~-33 ~-3 ~39 stone_pressure_plate
+setblock ~-33 ~-3 ~38 water
+
+setblock ~-33 ~-3 ~31 stone_pressure_plate
+setblock ~-33 ~-3 ~30 water
+
+setblock ~-33 ~-3 ~23 stone_pressure_plate
+setblock ~-33 ~-3 ~22 water
+
+setblock ~-33 ~-3 ~15 stone_pressure_plate
+setblock ~-33 ~-3 ~14 water
+
+
+
+#==============================================================================
+# De-Power the farm system
+#==============================================================================
+
+# Left
+
+# Beginning portion of the redstone circuit
+setblock ~-27 ~-5 ~11 quartz_block
+setblock ~-27 ~-4 ~11 comparator[facing=west]
+
+setblock ~-27 ~-5 ~12 quartz_block
+setblock ~-27 ~-4 ~12 comparator[facing=south]
+setblock ~-27 ~-4 ~13 redstone_block
+
+setblock ~-26 ~-5 ~11 quartz_block
+setblock ~-26 ~-4 ~11 redstone_wire
+setblock ~-25 ~-5 ~11 lever
+
+setblock ~-26 ~-6 ~11 sticky_piston[facing=down]
+setblock ~-26 ~-7 ~11 redstone_block
+
+setblock ~-26 ~-8 ~11 air
+
+
+
+# The redstone going from the beginning of the circuit to the bamboo farm
+fill ~-26 ~-10 ~11 ~-9 ~-10 ~11 quartz_block
+fill ~-26 ~-9 ~11 ~-9 ~-9 ~11 redstone_wire
+# fill ~-26 ~-8 ~11 ~-9 ~-8 ~11 air
+
+fill ~-9 ~-10 ~11 ~-9 ~-10 ~39 quartz_block
+fill ~-9 ~-9 ~11 ~-9 ~-9 ~39 redstone_wire
+# fill ~-9 ~-8 ~11 ~-9 ~-8 ~39 air
+
+setblock ~-9 ~-9 ~11 air
+setblock ~-9 ~-9 ~11 redstone_wire
+
+setblock ~-16 ~-9 ~11 repeater[facing=west]
+setblock ~-9 ~-9 ~13 repeater[facing=north]
+setblock ~-9 ~-9 ~20 repeater[facing=north]
+setblock ~-9 ~-9 ~30 repeater[facing=north]
+
+
+
+# Ending redstone circuit
+
+setblock ~-9 ~-9 ~40 quartz_block
+setblock ~-9 ~-8 ~40 redstone_torch
+setblock ~-9 ~-7 ~40 quartz_block
+setblock ~-9 ~-6 ~40 redstone_torch
+setblock ~-9 ~-5 ~40 quartz_block
+setblock ~-9 ~-4 ~40 redstone_torch
+
+
+
+# Right
+
+# Beginning portion of the redstone circuit
+setblock ~-35 ~-5 ~11 quartz_block
+setblock ~-35 ~-4 ~11 comparator[facing=west]
+
+setblock ~-35 ~-5 ~12 quartz_block
+setblock ~-35 ~-4 ~12 comparator[facing=south]
+setblock ~-35 ~-4 ~13 redstone_block
+
+setblock ~-36 ~-5 ~11 quartz_block
+setblock ~-36 ~-4 ~11 redstone_wire
+setblock ~-37 ~-5 ~11 lever
+
+setblock ~-36 ~-6 ~11 sticky_piston[facing=down]
+setblock ~-36 ~-7 ~11 redstone_block
+
+setblock ~-36 ~-8 ~11 air
+
+
+
+# The redstone going from the beginning of the circuit to the bamboo farm
+fill ~-36 ~-10 ~11 ~-52 ~-10 ~11 quartz_block
+fill ~-36 ~-9 ~11 ~-52 ~-9 ~11 redstone_wire
+# fill ~-36 ~-8 ~11 ~-52 ~-8 ~11 air
+
+fill ~-52 ~-10 ~11 ~-52 ~-10 ~39 quartz_block
+fill ~-52 ~-9 ~11 ~-52 ~-9 ~39 redstone_wire
+# fill ~-52 ~-8 ~11 ~-52 ~-8 ~39 air
+
+setblock ~-52 ~-9 ~11 air
+setblock ~-52 ~-9 ~11 redstone_wire
+
+setblock ~-46 ~-9 ~11 repeater[facing=west]
+setblock ~-52 ~-9 ~13 repeater[facing=north]
+setblock ~-52 ~-9 ~20 repeater[facing=north]
+setblock ~-52 ~-9 ~30 repeater[facing=north]
+
+
+
+# Ending redstone circuit
+
+setblock ~-52 ~-9 ~40 quartz_block
+setblock ~-52 ~-8 ~40 redstone_torch
+setblock ~-52 ~-7 ~40 quartz_block
+setblock ~-52 ~-6 ~40 redstone_torch
+setblock ~-52 ~-5 ~40 quartz_block
+setblock ~-52 ~-4 ~40 redstone_torch
+
+
+
+tp ~-30 ~1 ~8

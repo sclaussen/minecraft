@@ -1,1 +1,1 @@
-teleport @p 500 10 500
+teleport @p 1000 15 1000
