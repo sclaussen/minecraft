@@ -9,47 +9,68 @@
 # Initialization
 #==============================================================================
 
-# Dig out the entire working space (Depth/Height: -12/3, Wide/Deep: 62/53)
-fill ~ ~-12 ~ ~-62 ~3 ~10 air
-fill ~ ~-12 ~11 ~-62 ~3 ~20 air
-fill ~ ~-12 ~21 ~-62 ~3 ~30 air
-fill ~ ~-12 ~31 ~-62 ~3 ~40 air
-fill ~ ~-12 ~41 ~-62 ~3 ~53 air
+# Dig it all out
+# Depth: -12 Height: 8, Wide: 62 Deep: 53
+fill ~ ~-12 ~ ~-62 ~8 ~10 air
+fill ~ ~-12 ~11 ~-62 ~8 ~20 air
+fill ~ ~-12 ~21 ~-62 ~8 ~30 air
+fill ~ ~-12 ~31 ~-62 ~8 ~40 air
+fill ~ ~-12 ~41 ~-62 ~8 ~53 air
 
+# Basement
 # Put stone in the bottom 5 levels (-4 to -8)
-fill ~ ~-12 ~ ~-62 ~-5 ~10 smooth_stone
+fill ~ ~-12 ~1 ~-62 ~-5 ~10 smooth_stone
 fill ~ ~-12 ~11 ~-62 ~-5 ~20 smooth_stone
 fill ~ ~-12 ~21 ~-62 ~-5 ~30 smooth_stone
 fill ~ ~-12 ~31 ~-62 ~-5 ~40 smooth_stone
 fill ~ ~-12 ~41 ~-62 ~-5 ~53 smooth_stone
 
-# Create a floor on the left and right sides
-fill ~ ~-1 ~1 ~-5 ~-3 ~53 glowstone
-fill ~-56 ~-1 ~-7 ~-61 ~-3 ~53 glowstone
-fill ~ ~-1 ~51 ~-61 ~-3 ~53 glowstone
+# Front sidewalk (-62 to the right)
+fill ~ ~-1 ~ ~-62 ~-1 ~ glowstone
 
-# Add a strip of glowstone across the whole front side
-fill ~ ~-1 ~-4 ~-62 ~-1 ~ glowstone
 
-# Carve out the smelter region completely
-fill ~-22 ~-4 ~ ~-39 ~-7 ~47 air
-fill ~-27 ~-8 ~ ~-34 ~-8 ~47 glowstone
 
-# Left steps down
-fill ~-21 ~-7 ~ ~-21 ~-7 ~47 polished_diorite_stairs[facing=east]
-fill ~-21 ~-6 ~ ~-21 ~-6 ~47 air
-fill ~-21 ~-5 ~ ~-21 ~-5 ~47 air
-fill ~-20 ~-6 ~ ~-20 ~-6 ~47 polished_diorite_stairs[facing=east]
-fill ~-20 ~-5 ~ ~-20 ~-5 ~47 air
-fill ~-19 ~-5 ~ ~-19 ~-5 ~47 polished_diorite_stairs[facing=east]
 
-# Right steps down
-fill ~-40 ~-7 ~ ~-40 ~-7 ~47 polished_diorite_stairs[facing=west]
-fill ~-40 ~-6 ~ ~-40 ~-6 ~47 air
-fill ~-40 ~-5 ~ ~-40 ~-5 ~47 air
-fill ~-41 ~-6 ~ ~-41 ~-6 ~47 polished_diorite_stairs[facing=west]
-fill ~-41 ~-5 ~ ~-41 ~-5 ~47 air
-fill ~-42 ~-5 ~ ~-42 ~-5 ~47 polished_diorite_stairs[facing=west]
+#------------------------------------------------------------------------------
+# Floor
+#------------------------------------------------------------------------------
+
+# Fill front
+fill ~ ~-1 ~1 ~-63 ~-7 ~11 smooth_stone
+fill ~ ~-1 ~12 ~-12 ~-7 ~22 smooth_stone
+
+# Hollow smelter region
+fill ~-21 ~-1 ~4 ~-40 ~-7 ~47 air
+fill ~-27 ~-8 ~4 ~-34 ~-8 ~47 glowstone
+
+# # Left steps down
+# fill ~-21 ~-7 ~ ~-21 ~-7 ~47 polished_diorite_stairs[facing=east]
+# fill ~-21 ~-6 ~ ~-21 ~-6 ~47 air
+# fill ~-21 ~-5 ~ ~-21 ~-5 ~47 air
+# fill ~-20 ~-6 ~ ~-20 ~-6 ~47 polished_diorite_stairs[facing=east]
+# fill ~-20 ~-5 ~ ~-20 ~-5 ~47 air
+# fill ~-19 ~-5 ~ ~-19 ~-5 ~47 polished_diorite_stairs[facing=east]
+
+# # Right steps down
+# fill ~-40 ~-7 ~ ~-40 ~-7 ~47 polished_diorite_stairs[facing=west]
+# fill ~-40 ~-6 ~ ~-40 ~-6 ~47 air
+# fill ~-40 ~-5 ~ ~-40 ~-5 ~47 air
+# fill ~-41 ~-6 ~ ~-41 ~-6 ~47 polished_diorite_stairs[facing=west]
+# fill ~-41 ~-5 ~ ~-41 ~-5 ~47 air
+# fill ~-42 ~-5 ~ ~-42 ~-5 ~47 polished_diorite_stairs[facing=west]
+
+
+
+##=============================================================================
+## Railroad
+fill ~ ~-4 ~1 ~-62 ~-4 ~1 powered_rail
+setblock ~ ~-4 ~2 redstone_torch
+setblock ~-10 ~-4 ~2 redstone_torch
+setblock ~-20 ~-4 ~2 redstone_torch
+setblock ~-30 ~-4 ~2 redstone_torch
+setblock ~-40 ~-4 ~2 redstone_torch
+setblock ~-50 ~-4 ~2 redstone_torch
+setblock ~-60 ~-4 ~2 redstone_torch
 
 
 
@@ -74,21 +95,24 @@ fill ~-31 ~-6 ~11 ~-36 ~-4 ~43 air
 fill ~-30 ~-7 ~36 ~-31 ~-7 ~36 glass
 
 # Return canal structure
-fill ~-29 ~-7 ~ ~-29 ~-7 ~35 glass
-fill ~-30 ~-8 ~ ~-31 ~-8 ~35 packed_ice
-fill ~-32 ~-7 ~ ~-32 ~-7 ~35 glass
-fill ~-30 ~-7 ~ ~-31 ~-7 ~ glass
+fill ~-29 ~-7 ~5 ~-29 ~-7 ~35 glass
+fill ~-30 ~-8 ~5 ~-31 ~-8 ~35 packed_ice
+fill ~-32 ~-7 ~5 ~-32 ~-7 ~35 glass
 
 # Return canal water and pressure plates
 fill ~-30 ~-7 ~35 ~-31 ~-7 ~35 water
+
 fill ~-30 ~-7 ~28 ~-31 ~-7 ~28 stone_pressure_plate
 fill ~-30 ~-7 ~27 ~-31 ~-7 ~27 water
-fill ~-30 ~-7 ~20 ~-31 ~-7 ~20 stone_pressure_plate
-fill ~-30 ~-7 ~19 ~-31 ~-7 ~19 water
-fill ~-30 ~-7 ~15 ~-31 ~-7 ~15 stone_pressure_plate
-fill ~-30 ~-7 ~14 ~-31 ~-7 ~14 water
-fill ~-30 ~-7 ~9 ~-31 ~-7 ~9 stone_pressure_plate
-fill ~-30 ~-7 ~8 ~-31 ~-7 ~8 water
+
+fill ~-30 ~-7 ~20 ~-31 ~-7 ~22 stone_pressure_plate
+fill ~-30 ~-7 ~19 ~-31 ~-7 ~21 water
+
+fill ~-30 ~-7 ~20 ~-31 ~-7 ~17 stone_pressure_plate
+fill ~-30 ~-7 ~19 ~-31 ~-7 ~16 water
+
+fill ~-30 ~-7 ~12 ~-31 ~-7 ~12 stone_pressure_plate
+fill ~-30 ~-7 ~11 ~-31 ~-7 ~11 water
 
 
 
@@ -452,11 +476,12 @@ summon hopper_minecart ~-31 ~-2 ~10
 
 
 # Platform
-fill ~-24 ~-1 ~1 ~-37 ~-1 ~9 glass
-fill ~-24 ~-1 ~10 ~-29 ~ ~10 glass
-fill ~-32 ~-1 ~10 ~-37 ~ ~10 glass
-fill ~-29 ~ ~11 ~-32 ~ ~11 glass
-
+fill ~-21 ~-1 ~1 ~-40 ~-1 ~2 smooth_stone
+fill ~-21 ~-1 ~4 ~-40 ~-1 ~9 glass
+fill ~-21 ~-1 ~10 ~-29 ~-1 ~10 glass
+fill ~-32 ~-1 ~10 ~-40 ~-1 ~10 glass
+fill ~-21 ~-1 ~11 ~-23 ~-1 ~11 glass
+fill ~-40 ~-1 ~11 ~-38 ~-1 ~11 glass
 
 
 
@@ -879,11 +904,9 @@ setblock ~-26 ~-8 ~11 air
 # The redstone going from the beginning of the circuit to the bamboo farm
 fill ~-26 ~-10 ~11 ~-9 ~-10 ~11 quartz_block
 fill ~-26 ~-9 ~11 ~-9 ~-9 ~11 redstone_wire
-# fill ~-26 ~-8 ~11 ~-9 ~-8 ~11 air
 
 fill ~-9 ~-10 ~11 ~-9 ~-10 ~39 quartz_block
 fill ~-9 ~-9 ~11 ~-9 ~-9 ~39 redstone_wire
-# fill ~-9 ~-8 ~11 ~-9 ~-8 ~39 air
 
 setblock ~-9 ~-9 ~11 air
 setblock ~-9 ~-9 ~11 redstone_wire
@@ -930,11 +953,9 @@ setblock ~-35 ~-8 ~11 air
 # The redstone going from the beginning of the circuit to the bamboo farm
 fill ~-35 ~-10 ~11 ~-52 ~-10 ~11 quartz_block
 fill ~-35 ~-9 ~11 ~-52 ~-9 ~11 redstone_wire
-# fill ~-35 ~-8 ~11 ~-52 ~-8 ~11 air
 
 fill ~-52 ~-10 ~11 ~-52 ~-10 ~39 quartz_block
 fill ~-52 ~-9 ~11 ~-52 ~-9 ~39 redstone_wire
-# fill ~-52 ~-8 ~11 ~-52 ~-8 ~39 air
 
 setblock ~-52 ~-9 ~11 air
 setblock ~-52 ~-9 ~11 redstone_wire
@@ -957,4 +978,84 @@ setblock ~-52 ~-4 ~40 redstone_torch
 
 
 
-tp ~-30 ~1 ~8
+
+
+
+
+
+
+
+
+fill ~-30 ~-8 ~5 ~-30 ~9 ~5 air
+setblock ~-30 ~-9 ~5 soul_sand
+
+# Glass tower
+fill ~-29 ~-7 ~5 ~-29 ~7 ~5 glass
+fill ~-30 ~-6 ~6 ~-30 ~7 ~6 glass
+fill ~-31 ~-6 ~5 ~-31 ~7 ~5 glass
+fill ~-30 ~-7 ~4 ~-30 ~7 ~4 glass
+
+
+# Base of the tower
+setblock ~-31 ~-7 ~4 glass
+setblock ~-30 ~-8 ~6 packed_ice
+setblock ~-30 ~-7 ~6 smooth_stone_slab[type=top]
+fill ~-32 ~-7 ~4 ~-32 ~-7 ~8 glass
+setblock ~-31 ~-7 ~8 glass
+
+
+# Horizontal transport
+fill ~6 ~8 ~4 ~-31 ~8 ~4 glass
+fill ~5 ~7 ~5 ~-29 ~7 ~5 glass
+fill ~6 ~8 ~6 ~-31 ~8 ~6 glass
+setblock ~6 ~7 ~5 hopper[facing=east]
+
+setblock ~-30 ~9 ~5 glass
+setblock ~-31 ~8 ~5 glass
+
+
+
+setblock ~-22 ~7 ~5 packed_ice
+setblock ~-22 ~8 ~5 stone_pressure_plate
+setblock ~-21 ~8 ~5 water
+
+setblock ~-13 ~7 ~5 packed_ice
+setblock ~-13 ~8 ~5 stone_pressure_plate
+setblock ~-12 ~8 ~5 water
+
+setblock ~-4 ~7 ~5 packed_ice
+setblock ~-4 ~8 ~5 stone_pressure_plate
+setblock ~-3 ~8 ~5 water
+
+setblock ~4 ~7 ~5 packed_ice
+setblock ~4 ~8 ~5 stone_pressure_plate
+setblock ~5 ~8 ~5 water
+
+
+
+
+# Fill the tower with water
+fill ~-30 ~-8 ~5 ~-30 ~8 ~5 water
+
+
+
+# Base of tower
+setblock ~-32 ~-1 ~10 hopper[facing=east]
+setblock ~-33 ~-1 ~10 hopper[facing=east]
+
+# Vertical tower
+fill ~-32 ~ ~10 ~-32 ~8 ~10 glass
+fill ~-33 ~ ~11 ~-33 ~7 ~10 glass
+fill ~-34 ~ ~10 ~-34 ~8 ~10 glass
+fill ~-33 ~ ~9 ~-33 ~9 ~9 glass
+
+# North/South horizontal
+fill ~-32 ~8 ~10 ~-32 ~8 ~47 glass
+fill ~-33 ~7 ~11 ~-33 ~7 ~47 glass
+fill ~-34 ~8 ~10 ~-34 ~8 ~47 glass
+setblock ~-33 ~8 ~47 glass
+setblock ~-33 ~7 ~46 water
+
+
+
+# tp ~-26 ~-4 ~2

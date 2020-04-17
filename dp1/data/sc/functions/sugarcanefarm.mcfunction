@@ -3,7 +3,11 @@
 fill ~ ~-1 ~1 ~-4 ~-5 ~23 smooth_stone
 fill ~ ~ ~1 ~-4 ~3 ~23 air
 fill ~-1 ~ ~2 ~-3 ~3 ~4 glass
+
+# Glowstone front sidewalk
 fill ~ ~-1 ~ ~-4 ~-1 ~ glowstone
+
+# Glowstone back sidewalk
 fill ~ ~-1 ~23 ~-4 ~-1 ~23 glowstone
 
 

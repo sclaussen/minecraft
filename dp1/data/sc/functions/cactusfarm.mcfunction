@@ -1,8 +1,16 @@
 ##=============================================================================
 ## Initialization
+
+# Basement (Depth -5, -4 to the right, 23 back)
 fill ~ ~-1 ~1 ~-4 ~-5 ~23 smooth_stone
+
+# Above ground (Height 3, -4 to right, 23 back)
 fill ~ ~ ~1 ~-4 ~3 ~23 air
+
+# Front sidewalk (-4 to the right)
 fill ~ ~-1 ~ ~-4 ~-1 ~ glowstone
+
+# Back sidewalk
 fill ~ ~-1 ~23 ~-4 ~-1 ~23 glowstone
 
 
