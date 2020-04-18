@@ -9,55 +9,30 @@
 # Initialization
 #==============================================================================
 
-# Dig it all out
-# Depth: -12 Height: 8, Wide: 62 Deep: 53
-fill ~ ~-12 ~ ~-62 ~8 ~10 air
-fill ~ ~-12 ~11 ~-62 ~8 ~20 air
-fill ~ ~-12 ~21 ~-62 ~8 ~30 air
-fill ~ ~-12 ~31 ~-62 ~8 ~40 air
-fill ~ ~-12 ~41 ~-62 ~8 ~53 air
+# Dig it all out (10 rows at a time)
+fill ~ ~-12 ~ ~-62 ~10 ~10 air
+fill ~ ~-12 ~11 ~-62 ~10 ~20 air
+fill ~ ~-12 ~21 ~-62 ~10 ~30 air
+fill ~ ~-12 ~31 ~-62 ~10 ~40 air
+fill ~ ~-12 ~41 ~-62 ~10 ~53 air
 
-# Basement
-# Put stone in the bottom 5 levels (-4 to -8)
-fill ~ ~-12 ~1 ~-62 ~-5 ~10 smooth_stone
-fill ~ ~-12 ~11 ~-62 ~-5 ~20 smooth_stone
-fill ~ ~-12 ~21 ~-62 ~-5 ~30 smooth_stone
-fill ~ ~-12 ~31 ~-62 ~-5 ~40 smooth_stone
-fill ~ ~-12 ~41 ~-62 ~-5 ~53 smooth_stone
+# Basement (10 rows at a time)
+fill ~ ~-12 ~1 ~-62 ~-1 ~10 smooth_stone
+fill ~ ~-12 ~11 ~-62 ~-1 ~20 smooth_stone
+fill ~ ~-12 ~21 ~-62 ~-1 ~30 smooth_stone
+fill ~ ~-12 ~31 ~-62 ~-1 ~40 smooth_stone
+fill ~ ~-12 ~41 ~-62 ~-1 ~53 smooth_stone
 
 # Front sidewalk (-62 to the right)
 fill ~ ~-1 ~ ~-62 ~-1 ~ glowstone
-
-
-
-
-#------------------------------------------------------------------------------
-# Floor
-#------------------------------------------------------------------------------
-
-# Fill front
-fill ~ ~-1 ~1 ~-63 ~-7 ~11 smooth_stone
-fill ~ ~-1 ~12 ~-12 ~-7 ~22 smooth_stone
 
 # Hollow smelter region
 fill ~-21 ~-1 ~4 ~-40 ~-7 ~47 air
 fill ~-27 ~-8 ~4 ~-34 ~-8 ~47 glowstone
 
-# # Left steps down
-# fill ~-21 ~-7 ~ ~-21 ~-7 ~47 polished_diorite_stairs[facing=east]
-# fill ~-21 ~-6 ~ ~-21 ~-6 ~47 air
-# fill ~-21 ~-5 ~ ~-21 ~-5 ~47 air
-# fill ~-20 ~-6 ~ ~-20 ~-6 ~47 polished_diorite_stairs[facing=east]
-# fill ~-20 ~-5 ~ ~-20 ~-5 ~47 air
-# fill ~-19 ~-5 ~ ~-19 ~-5 ~47 polished_diorite_stairs[facing=east]
+# Hollow bamboo farm region
+fill ~-7 ~-1 ~37 ~-57 ~-7 ~48 air
 
-# # Right steps down
-# fill ~-40 ~-7 ~ ~-40 ~-7 ~47 polished_diorite_stairs[facing=west]
-# fill ~-40 ~-6 ~ ~-40 ~-6 ~47 air
-# fill ~-40 ~-5 ~ ~-40 ~-5 ~47 air
-# fill ~-41 ~-6 ~ ~-41 ~-6 ~47 polished_diorite_stairs[facing=west]
-# fill ~-41 ~-5 ~ ~-41 ~-5 ~47 air
-# fill ~-42 ~-5 ~ ~-42 ~-5 ~47 polished_diorite_stairs[facing=west]
 
 
 
@@ -77,13 +52,13 @@ setblock ~-60 ~-4 ~2 redstone_torch
 #==============================================================================
 # Furnaces
 #==============================================================================
+fill ~-30 ~-4 ~11 ~-30 ~-4 ~43 furnace[facing=east]
 fill ~-31 ~-4 ~11 ~-31 ~-4 ~43 furnace[facing=west]
-fill ~-31 ~-6 ~11 ~-36 ~-4 ~43 air
 
 
 
 #==============================================================================
-# Return system
+# Smelter return system
 #==============================================================================
 
 
@@ -91,28 +66,38 @@ fill ~-31 ~-6 ~11 ~-36 ~-4 ~43 air
 #------------------------------------------------------------------------------
 # Return canal
 #------------------------------------------------------------------------------
-# Glass at the very start of the item return canal
-fill ~-30 ~-7 ~36 ~-31 ~-7 ~36 glass
 
-# Return canal structure
-fill ~-29 ~-7 ~5 ~-29 ~-7 ~35 glass
-fill ~-30 ~-8 ~5 ~-31 ~-8 ~35 packed_ice
-fill ~-32 ~-7 ~5 ~-32 ~-7 ~35 glass
+# Glass over the water canal
+fill ~-30 ~-8 ~5 ~-31 ~-8 ~35 glass
 
-# Return canal water and pressure plates
-fill ~-30 ~-7 ~35 ~-31 ~-7 ~35 water
+# Poke holes in the air for the droppers to drop items into the water canal
+fill ~-30 ~-8 ~11 ~-31 ~-8 ~11 air
+fill ~-30 ~-8 ~19 ~-31 ~-8 ~19 air
+fill ~-30 ~-8 ~27 ~-31 ~-8 ~27 air
+fill ~-30 ~-8 ~35 ~-31 ~-8 ~35 air
 
-fill ~-30 ~-7 ~28 ~-31 ~-7 ~28 stone_pressure_plate
-fill ~-30 ~-7 ~27 ~-31 ~-7 ~27 water
 
-fill ~-30 ~-7 ~20 ~-31 ~-7 ~22 stone_pressure_plate
-fill ~-30 ~-7 ~19 ~-31 ~-7 ~21 water
+# Ice under the water
+fill ~-30 ~-10 ~35 ~-31 ~-10 ~5 packed_ice
+fill ~-30 ~-9 ~35 ~-31 ~-9 ~5 air
 
-fill ~-30 ~-7 ~20 ~-31 ~-7 ~17 stone_pressure_plate
-fill ~-30 ~-7 ~19 ~-31 ~-7 ~16 water
 
-fill ~-30 ~-7 ~12 ~-31 ~-7 ~12 stone_pressure_plate
-fill ~-30 ~-7 ~11 ~-31 ~-7 ~11 water
+# Water and pressure plates
+fill ~-30 ~-9 ~35 ~-31 ~-9 ~35 water
+
+fill ~-30 ~-9 ~29 ~-31 ~-9 ~28 stone_pressure_plate
+fill ~-30 ~-9 ~27 ~-31 ~-9 ~27 water
+
+fill ~-30 ~-9 ~22 ~-31 ~-9 ~22 stone_pressure_plate
+fill ~-30 ~-9 ~21 ~-31 ~-9 ~21 water
+
+fill ~-30 ~-9 ~18 ~-31 ~-9 ~18 stone_pressure_plate
+fill ~-30 ~-9 ~17 ~-31 ~-9 ~17 water
+
+fill ~-30 ~-9 ~12 ~-31 ~-9 ~12 stone_pressure_plate
+fill ~-30 ~-9 ~11 ~-31 ~-9 ~11 water
+
+fill ~-30 ~-9 ~6 ~-31 ~-9 ~6 stone_pressure_plate
 
 
 
@@ -307,7 +292,7 @@ setblock ~-32 ~-6 ~34 repeater[facing=east]
 
 
 #==============================================================================
-# Input system
+# Smelter input system
 #==============================================================================
 
 
@@ -403,8 +388,8 @@ setblock ~-26 ~-2 ~10 repeater[facing=west,delay=4]
 setblock ~-25 ~-3 ~10 quartz_block
 setblock ~-25 ~-2 ~10 repeater[facing=west,delay=4]
 
-# NOTE: This block needs a redstone torch attached to the rail side
 setblock ~-24 ~-2 ~10 quartz_block
+setblock ~-24 ~-2 ~11 redstone_wall_torch[facing=south]
 
 setblock ~-24 ~-1 ~11 quartz_block
 setblock ~-24 ~ ~11 redstone_wire
@@ -437,8 +422,8 @@ setblock ~-35 ~-2 ~10 repeater[facing=east,delay=4]
 setblock ~-36 ~-3 ~10 quartz_block
 setblock ~-36 ~-2 ~10 repeater[facing=east,delay=4]
 
-# NOTE: This block needs a redstone torch attached to the rail side
 setblock ~-37 ~-2 ~10 quartz_block
+setblock ~-37 ~-2 ~11 redstone_wall_torch[facing=south]
 
 setblock ~-37 ~-1 ~11 quartz_block
 setblock ~-37 ~ ~11 redstone_wire
@@ -476,11 +461,11 @@ summon hopper_minecart ~-31 ~-2 ~10
 
 
 # Platform
-fill ~-21 ~-1 ~1 ~-40 ~-1 ~2 smooth_stone
-fill ~-21 ~-1 ~4 ~-40 ~-1 ~9 glass
-fill ~-21 ~-1 ~10 ~-29 ~-1 ~10 glass
+fill ~ ~-1 ~1 ~-40 ~-1 ~2 smooth_stone
+fill ~ ~-1 ~4 ~-40 ~-1 ~9 glass
+fill ~ ~-1 ~10 ~-29 ~-1 ~10 glass
 fill ~-32 ~-1 ~10 ~-40 ~-1 ~10 glass
-fill ~-21 ~-1 ~11 ~-23 ~-1 ~11 glass
+fill ~ ~-1 ~11 ~-23 ~-1 ~11 glass
 fill ~-40 ~-1 ~11 ~-38 ~-1 ~11 glass
 
 
@@ -730,6 +715,7 @@ setblock ~-13 ~2 ~42 observer[facing=north]
 fill ~-13 ~1 ~43 ~-24 ~1 ~43 slime_block
 
 setblock ~-13 ~2 ~43 dropper[facing=up]
+
 fill ~-13 ~3 ~41 ~-13 ~3 ~42 powered_rail[shape=north_south]
 
 fill ~-13 ~2 ~44 ~-24 ~2 ~44 lime_glazed_terracotta
@@ -877,7 +863,7 @@ setblock ~-33 ~-3 ~14 water
 
 
 #==============================================================================
-# De-Power the farm system
+# Turn the bamboo farm off when the last hopper is full
 #==============================================================================
 
 # Left
@@ -896,6 +882,10 @@ setblock ~-25 ~-5 ~11 lever[facing=east]
 
 setblock ~-26 ~-6 ~11 sticky_piston[facing=down]
 setblock ~-26 ~-7 ~11 redstone_block
+setblock ~-26 ~-8 ~10 obsidian
+setblock ~-26 ~-8 ~12 obsidian
+setblock ~-25 ~-8 ~11 obsidian
+setblock ~-27 ~-8 ~11 obsidian
 
 setblock ~-26 ~-8 ~11 air
 
@@ -945,6 +935,10 @@ setblock ~-36 ~-5 ~11 lever[facing=west]
 
 setblock ~-35 ~-6 ~11 sticky_piston[facing=down]
 setblock ~-35 ~-7 ~11 redstone_block
+setblock ~-35 ~-8 ~10 obsidian
+setblock ~-35 ~-8 ~12 obsidian
+setblock ~-34 ~-8 ~11 obsidian
+setblock ~-36 ~-8 ~11 obsidian
 
 setblock ~-35 ~-8 ~11 air
 
@@ -978,84 +972,359 @@ setblock ~-52 ~-4 ~40 redstone_torch
 
 
 
+#==============================================================================
+# Input system
+#==============================================================================
+
+#------------------------------------------------------------------------------
+# Furnace group 5 tower
+#------------------------------------------------------------------------------
+
+# Vertical tower base
+fill ~ ~-6 ~40 ~-4 ~9 ~43 air
+
+# Lowest level
+setblock ~-3 ~-6 ~41 soul_sand
+
+# Lower level
+fill ~ ~-5 ~40 ~-4 ~-5 ~43 glass
+setblock ~-2 ~-5 ~41 packed_ice
+setblock ~-3 ~-5 ~41 air
+
+# Mid level
+fill ~ ~-4 ~40 ~-4 ~-4 ~40 glass
+setblock ~-2 ~-4 ~41 smooth_stone_slab[type=top]
+setblock ~-4 ~-4 ~41 glass
+setblock ~ ~-4 ~42 glass
+setblock ~-4 ~-4 ~42 glass
+fill ~ ~-4 ~43 ~-4 ~-4 ~43 glass
+
+# Tower
+fill ~-3 ~-3 ~40 ~-3 ~10 ~40 glass
+fill ~-2 ~-3 ~41 ~-2 ~10 ~41 glass
+fill ~-4 ~-3 ~41 ~-4 ~10 ~41 glass
+fill ~-3 ~-3 ~42 ~-3 ~9 ~42 glass
+setblock ~-3 ~11 ~41 glass
+
+# Fill tower
+fill ~-3 ~-5 ~41 ~-3 ~10 ~41 water
 
 
 
+#------------------------------------------------------------------------------
+# Furnace group 6 tower
+#------------------------------------------------------------------------------
+
+# Vertical tower base
+fill ~ ~-6 ~49 ~-4 ~9 ~52 air
+
+
+# Lowest level
+setblock ~-3 ~-6 ~50 soul_sand
+
+# Lower level
+fill ~ ~-5 ~49 ~-4 ~-5 ~52 glass
+setblock ~-2 ~-5 ~50 packed_ice
+setblock ~-3 ~-5 ~50 air
+
+# Mid level
+fill ~ ~-4 ~49 ~-4 ~-4 ~49 glass
+setblock ~-2 ~-4 ~50 smooth_stone_slab[type=top]
+setblock ~-4 ~-4 ~50 glass
+setblock ~ ~-4 ~51 glass
+setblock ~-4 ~-4 ~51 glass
+fill ~ ~-4 ~52 ~-4 ~-4 ~52 glass
+
+# Tower
+fill ~-3 ~-3 ~49 ~-3 ~9 ~49 glass
+fill ~-2 ~-3 ~50 ~-2 ~10 ~50 glass
+fill ~-4 ~-3 ~50 ~-4 ~10 ~50 glass
+fill ~-3 ~-3 ~51 ~-3 ~10 ~51 glass
+setblock ~-3 ~11 ~50 glass
+
+# Fill tower
+fill ~-3 ~-5 ~50 ~-3 ~10 ~50 water
 
 
 
+#------------------------------------------------------------------------------
+# Furnace group 5 and 6 tower mini-canal extensions (north/south)
+#------------------------------------------------------------------------------
 
+# Mini north/south connectors
+fill ~-2 ~10 ~42 ~-2 ~10 ~44 glass
+fill ~-3 ~9 ~43 ~-3 ~9 ~44 glass
+fill ~-4 ~10 ~42 ~-4 ~10 ~44 glass
 
-fill ~-30 ~-8 ~5 ~-30 ~9 ~5 air
-setblock ~-30 ~-9 ~5 soul_sand
-
-# Glass tower
-fill ~-29 ~-7 ~5 ~-29 ~7 ~5 glass
-fill ~-30 ~-6 ~6 ~-30 ~7 ~6 glass
-fill ~-31 ~-6 ~5 ~-31 ~7 ~5 glass
-fill ~-30 ~-7 ~4 ~-30 ~7 ~4 glass
-
-
-# Base of the tower
-setblock ~-31 ~-7 ~4 glass
-setblock ~-30 ~-8 ~6 packed_ice
-setblock ~-30 ~-7 ~6 smooth_stone_slab[type=top]
-fill ~-32 ~-7 ~4 ~-32 ~-7 ~8 glass
-setblock ~-31 ~-7 ~8 glass
-
-
-# Horizontal transport
-fill ~6 ~8 ~4 ~-31 ~8 ~4 glass
-fill ~5 ~7 ~5 ~-29 ~7 ~5 glass
-fill ~6 ~8 ~6 ~-31 ~8 ~6 glass
-setblock ~6 ~7 ~5 hopper[facing=east]
-
-setblock ~-30 ~9 ~5 glass
-setblock ~-31 ~8 ~5 glass
+fill ~-2 ~10 ~49 ~-2 ~10 ~47 glass
+fill ~-3 ~9 ~48 ~-3 ~9 ~47 glass
+fill ~-4 ~10 ~49 ~-4 ~10 ~47 glass
 
 
 
-setblock ~-22 ~7 ~5 packed_ice
-setblock ~-22 ~8 ~5 stone_pressure_plate
-setblock ~-21 ~8 ~5 water
+#------------------------------------------------------------------------------
+# Furnace group 5 and 6 combined double wide canal (east/west)
+#------------------------------------------------------------------------------
 
-setblock ~-13 ~7 ~5 packed_ice
-setblock ~-13 ~8 ~5 stone_pressure_plate
-setblock ~-12 ~8 ~5 water
+# End, Side, 2 bottoms, and a side
+fill ~-2 ~9 ~45 ~-2 ~9 ~46 glass
+fill ~-2 ~9 ~44 ~-32 ~9 ~44 glass
+fill ~-2 ~8 ~45 ~-32 ~8 ~45 glass
+fill ~-2 ~8 ~46 ~-32 ~8 ~46 glass
+fill ~-2 ~9 ~47 ~-32 ~9 ~47 glass
 
-setblock ~-4 ~7 ~5 packed_ice
-setblock ~-4 ~8 ~5 stone_pressure_plate
-setblock ~-3 ~8 ~5 water
+# Water
+fill ~-11 ~8 ~45 ~-11 ~8 ~46 packed_ice
+fill ~-11 ~9 ~45 ~-11 ~9 ~46 stone_pressure_plate
+fill ~-12 ~9 ~45 ~-12 ~9 ~46 water
 
-setblock ~4 ~7 ~5 packed_ice
-setblock ~4 ~8 ~5 stone_pressure_plate
-setblock ~5 ~8 ~5 water
+fill ~-20 ~8 ~45 ~-20 ~8 ~46 packed_ice
+fill ~-20 ~9 ~45 ~-20 ~9 ~46 stone_pressure_plate
+fill ~-21 ~9 ~45 ~-21 ~9 ~46 water
+
+fill ~-24 ~8 ~45 ~-24 ~8 ~46 packed_ice
+fill ~-24 ~9 ~45 ~-24 ~9 ~46 stone_pressure_plate
+fill ~-25 ~9 ~45 ~-25 ~9 ~46 water
 
 
 
+#------------------------------------------------------------------------------
+# Furnace group 5 and 6 combined canal approaching chest (north/south)
+#------------------------------------------------------------------------------
+fill ~-32 ~8 ~10 ~-32 ~8 ~47 glass
+fill ~-33 ~7 ~11 ~-33 ~7 ~47 glass
+fill ~-34 ~8 ~10 ~-34 ~8 ~47 glass
+setblock ~-33 ~8 ~47 glass
 
-# Fill the tower with water
-fill ~-30 ~-8 ~5 ~-30 ~8 ~5 water
+setblock ~-33 ~8 ~46 water
 
+setblock ~-33 ~7 ~38 packed_ice
+setblock ~-33 ~8 ~38 stone_pressure_plate
+setblock ~-33 ~8 ~37 water
+
+setblock ~-33 ~7 ~29 packed_ice
+setblock ~-33 ~8 ~29 stone_pressure_plate
+setblock ~-33 ~8 ~28 water
+
+setblock ~-33 ~7 ~25 packed_ice
+setblock ~-33 ~8 ~25 stone_pressure_plate
+setblock ~-33 ~8 ~24 water
+
+setblock ~-33 ~7 ~18 packed_ice
+setblock ~-33 ~8 ~18 stone_pressure_plate
+setblock ~-33 ~8 ~17 water
+
+
+
+#------------------------------------------------------------------------------
+# Final tower from north/south canal to hoppers/chests
+#------------------------------------------------------------------------------
+
+# Vertical tower
+fill ~-32 ~ ~10 ~-32 ~8 ~10 glass
+fill ~-34 ~ ~10 ~-34 ~8 ~10 glass
+fill ~-33 ~ ~11 ~-33 ~7 ~11 glass
+fill ~-33 ~ ~9 ~-33 ~8 ~9 glass
 
 
 # Base of tower
 setblock ~-32 ~-1 ~10 hopper[facing=east]
 setblock ~-33 ~-1 ~10 hopper[facing=east]
 
-# Vertical tower
-fill ~-32 ~ ~10 ~-32 ~8 ~10 glass
-fill ~-33 ~ ~11 ~-33 ~7 ~10 glass
-fill ~-34 ~ ~10 ~-34 ~8 ~10 glass
-fill ~-33 ~ ~9 ~-33 ~9 ~9 glass
-
-# North/South horizontal
-fill ~-32 ~8 ~10 ~-32 ~8 ~47 glass
-fill ~-33 ~7 ~11 ~-33 ~7 ~47 glass
-fill ~-34 ~8 ~10 ~-34 ~8 ~47 glass
-setblock ~-33 ~8 ~47 glass
-setblock ~-33 ~7 ~46 water
 
 
+#==============================================================================
+# Sorter input and smelter return system
+#==============================================================================
 
-# tp ~-26 ~-4 ~2
+
+#------------------------------------------------------------------------------
+# High tower connected to the sorter input
+#------------------------------------------------------------------------------
+
+fill ~ ~6 ~4 ~-4 ~6 ~4 glass
+fill ~ ~5 ~5 ~-2 ~5 ~5 glass
+fill ~ ~6 ~6 ~-4 ~6 ~6 glass
+setblock ~-4 ~6 ~5 glass
+
+setblock ~-3 ~6 ~5 water
+
+setblock ~1 ~6 ~5 stone_pressure_plate
+
+fill ~-2 ~-2 ~4 ~-20 ~-10 ~9 air
+
+
+#------------------------------------------------------------------------------
+# Sorter input water tower
+#------------------------------------------------------------------------------
+
+# Right hand colum
+fill ~-4 ~-10 ~5 ~-4 ~5 ~5 glass
+
+# Left hand 8
+fill ~-2 ~-10 ~5 ~-2 ~5 ~5 glass
+
+# Back column
+fill ~-3 ~-10 ~6 ~-3 ~5 ~6 glass
+
+# Front column
+fill ~-3 ~-10 ~4 ~-3 ~5 ~4 glass
+
+# Lid
+setblock ~-3 ~7 ~5 glass
+
+
+
+#------------------------------------------------------------------------------
+# Connect the smelter's return area to the sorter's input water tower
+#------------------------------------------------------------------------------
+
+# Tower foundation glass (both below water and water level for sides)
+fill ~-2 ~-10 ~7 ~-26 ~-8 ~9 glass
+
+# 3x3
+fill ~-2 ~-8 ~4 ~-29 ~-10 ~6 glass
+# Floor
+fill ~-3 ~-10 ~5 ~-29 ~-10 ~5 packed_ice
+# Inside
+fill ~-3 ~-9 ~5 ~-29 ~-9 ~5 air
+fill ~-2 ~-8 ~4 ~-31 ~-10 ~4 glass
+
+
+
+
+#------------------------------------------------------------------------------
+# Base of the water tower
+#------------------------------------------------------------------------------
+
+# Soulsand
+setblock ~-3 ~-11 ~5 soul_sand
+setblock ~-3 ~-10 ~5 air
+
+# Remove block to enable circulation
+setblock ~-3 ~-9 ~6 air
+setblock ~-4 ~-9 ~6 air
+setblock ~-5 ~-9 ~6 air
+fill ~-3 ~-9 ~5 ~-9 ~-9 ~5 air
+
+# Ice/Slab
+setblock ~-4 ~-10 ~5 packed_ice
+setblock ~-4 ~-9 ~5 quartz_slab[type=top]
+
+
+
+#------------------------------------------------------------------------------
+# Add water
+#------------------------------------------------------------------------------
+
+# End of the north/south return channel to the east/west channel
+setblock ~-31 ~-9 ~5 water
+
+setblock ~-23 ~-9 ~5 stone_pressure_plate
+setblock ~-22 ~-9 ~5 water
+
+setblock ~-15 ~-9 ~5 stone_pressure_plate
+setblock ~-14 ~-9 ~5 water
+
+setblock ~-10 ~-9 ~5 stone_pressure_plate
+setblock ~-9 ~-9 ~5 water
+
+# Return water tower
+fill ~-3 ~-10 ~5 ~-3 ~5 ~5 water
+
+
+
+#==============================================================================
+# Chest sorter input system
+#==============================================================================
+
+setblock ~-7 ~ ~5 chest[type=right]
+setblock ~-8 ~ ~5 chest[type=left]
+
+# Chest to dropper connection via hopper
+fill ~-7 ~-1 ~5 ~-7 ~-7 ~5 hopper
+
+# Dropper and its redstone circuit
+setblock ~-7 ~-7 ~5 dropper[facing=down]
+setblock ~-7 ~-8 ~5 air
+fill ~-6 ~-7 ~6 ~-8 ~-8 ~8 quartz_block
+setblock ~-8 ~-7 ~5 quartz_block
+setblock ~-7 ~-7 ~8 quartz_block
+
+# Redstone
+setblock ~-7 ~-7 ~6 comparator[facing=north]
+setblock ~-7 ~-7 ~7 repeater[facing=north]
+setblock ~-7 ~-6 ~8 redstone_wire
+
+setblock ~-6 ~-7 ~8 redstone_wire
+setblock ~-6 ~-7 ~7 redstone_wire
+setblock ~-6 ~-7 ~6 redstone_wire[west=side]
+
+setblock ~-8 ~-7 ~8 redstone_wire[west=none,east=none]
+setblock ~-8 ~-7 ~7 redstone_wire[west=none,east=none]
+setblock ~-8 ~-7 ~6 repeater[facing=south]
+
+
+
+#==============================================================================
+# Hopper minecart input system
+#==============================================================================
+
+# Hopper minecart drop off
+setblock ~-14 ~-5 ~5 hopper
+setblock ~-14 ~-4 ~5 powered_rail
+
+
+# Hopper minecart drop off redstone circuit
+setblock ~-13 ~-4 ~5 quartz_block
+setblock ~-13 ~-5 ~5 comparator[facing=west]
+setblock ~-13 ~-6 ~5 quartz_block
+
+setblock ~-12 ~-4 ~5 repeater[facing=east]
+setblock ~-12 ~-5 ~5 quartz_block
+
+setblock ~-11 ~-4 ~5 quartz_block
+setblock ~-11 ~-5 ~5 redstone_wall_torch[facing=east]
+
+
+# Hopper connection to the dropper
+setblock ~-14 ~-6 ~5 hopper
+
+
+# Dropper
+setblock ~-14 ~-7 ~5 dropper[facing=down]
+
+
+# Dropper redstone circuit
+setblock ~-14 ~-8 ~5 air
+fill ~-13 ~-7 ~6 ~-15 ~-8 ~8 quartz_block
+setblock ~-15 ~-7 ~5 quartz_block
+setblock ~-14 ~-7 ~8 quartz_block
+
+setblock ~-14 ~-7 ~6 comparator[facing=north]
+setblock ~-14 ~-7 ~7 repeater[facing=north]
+setblock ~-14 ~-8 ~8 redstone_wire
+
+setblock ~-13 ~-7 ~8 redstone_wire
+setblock ~-13 ~-7 ~7 redstone_wire
+setblock ~-13 ~-7 ~6 redstone_wire[west=side]
+
+setblock ~-15 ~-7 ~8 redstone_wire[west=none,east=none]
+setblock ~-15 ~-7 ~7 redstone_wire[west=none,east=none]
+setblock ~-15 ~-7 ~6 repeater[facing=south]
+
+
+# Connecting train track
+fill ~-15 ~-5 ~5 ~-17 ~-5 ~5 quartz_block
+fill ~-15 ~-4 ~5 ~-17 ~-4 ~5 powered_rail
+
+fill ~-17 ~-5 ~4 ~-17 ~-5 ~2 quartz_block
+fill ~-17 ~-4 ~4 ~-17 ~-4 ~2 powered_rail
+fill ~-17 ~-3 ~4 ~-17 ~-3 ~1 air
+
+setblock ~-16 ~-5 ~4 quartz_block
+setblock ~-16 ~-4 ~4 redstone_torch
+
+setblock ~-17 ~-4 ~5 rail
+setblock ~-16 ~-4 ~1 air
+setblock ~-17 ~-4 ~1 rail

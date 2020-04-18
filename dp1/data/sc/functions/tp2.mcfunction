@@ -1,1 +1,1 @@
-teleport @p 7979 15 3000
+teleport @p 6979 15 -1000

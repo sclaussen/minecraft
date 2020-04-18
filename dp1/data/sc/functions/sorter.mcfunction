@@ -1,31 +1,23 @@
-##=============================================================================
+#==============================================================================
 # Notes:
 # - Starting point is the NE corner
 # - Everything is built to the South and West
 # ~ is above the floor, ~-1 is the floor
 #
-# Dimensions:
-# - 5 levels underground (inclusive of the floor level)
-# - Room: 7 high by 20 wide by 45 long
-# - Separate sorters: 4x8x2 (64)
-#
 # Post build:
-# - Add redstone torches under each repeater
 # - Item Frames behind and in front
 # - Dispenser: Add 1 tick to repeater, redo redstone dust next to repeater
-# - In each filter hopper: full stack on left, then 32 named blocks
-#   slid over 4 slots on right (8 per slot)
 #
 # TODO:
 # - Chests for unfiltered items
 # - Item Frame (summon)
-# - Smelter
-##=============================================================================
+#==============================================================================
 
 
 
-##=============================================================================
-## Initializaton
+#==============================================================================
+# Initializaton
+#==============================================================================
 
 # Dig it all out
 fill ~ ~-1 ~ ~-20 ~-7 ~62 air
@@ -46,8 +38,9 @@ fill ~-13 ~-2 ~5 ~-20 ~-1 ~58 air
 
 
 
-##=============================================================================
-## Railroad
+#==============================================================================
+# Railroad
+#==============================================================================
 fill ~ ~-4 ~1 ~-20 ~-4 ~1 powered_rail
 setblock ~ ~-4 ~2 redstone_torch
 setblock ~-10 ~-4 ~2 redstone_torch
@@ -55,8 +48,9 @@ setblock ~-20 ~-4 ~2 redstone_torch
 
 
 
-##=============================================================================
-## Level -3 (left to right)
+#==============================================================================
+# Level -3 (left to right)
+#==============================================================================
 
 # 2 wide glowstone
 fill ~-2 ~-3 ~5 ~-5 ~-3 ~58 glowstone
@@ -64,8 +58,9 @@ fill ~-18 ~-3 ~5 ~-15 ~-3 ~58 glowstone
 
 
 
-##=============================================================================
-## Level -2 (left to right)
+#==============================================================================
+# Level -2 (left to right)
+#==============================================================================
 
 # 3 wide quartz blocks (back row)
 fill ~ ~-2 ~5 ~-2 ~-2 ~58 quartz_block
@@ -77,8 +72,9 @@ fill ~-14 ~-2 ~5 ~-13 ~-2 ~58 quartz_block
 
 
 
-##=============================================================================
-## Level -1 (left to right)
+#==============================================================================
+# Level -1 (left to right)
+#==============================================================================
 
 # 3 wide quartz blocks (back row)
 fill ~ ~-1 ~2 ~-2 ~-1 ~61 quartz_block
@@ -90,8 +86,9 @@ fill ~-14 ~-1 ~5 ~-13 ~-1 ~58 quartz_block
 
 
 
-##=============================================================================
-## Level 0 (knees level)
+#==============================================================================
+# Level 0 (knees level)
+#==============================================================================
 
 # 2 wide quartz block (back row)
 fill ~ ~ ~5 ~-1 ~ ~58 quartz_block
@@ -105,6 +102,10 @@ fill ~-18 ~ ~5 ~-18 ~ ~58 repeater[facing=west]
 fill ~-3 ~ ~5 ~-3 ~ ~58 quartz_block
 fill ~-17 ~ ~5 ~-17 ~ ~58 quartz_block
 
+# One row of redstone wall torches
+fill ~-4 ~ ~5 ~-4 ~ ~58 redstone_wall_torch[facing=west]
+fill ~-16 ~ ~5 ~-16 ~ ~58 redstone_wall_torch[facing=east]
+
 # Hopper going into bottom chest
 fill ~-5 ~ ~5 ~-5 ~ ~58 hopper[facing=west]
 fill ~-15 ~ ~5 ~-15 ~ ~58 hopper[facing=east]
@@ -117,8 +118,9 @@ fill ~-13 ~ ~5 ~-13 ~ ~58 chest[type=right]
 
 
 
-##=============================================================================
-### Level 1 (head level)
+#==============================================================================
+# Level 1 (head level)
+#==============================================================================
 
 # 2 wide quartz blocks (one from back row)
 fill ~-2 ~1 ~5 ~-4 ~1 ~58 quartz_block
@@ -136,8 +138,9 @@ fill ~-13 ~1 ~5 ~-13 ~1 ~58 chest[type=right]
 
 
 
-##=============================================================================
-### Level 2 (comparators and hoppers)
+#==============================================================================
+# Level 2 (comparators and hoppers)
+#==============================================================================
 
 # 2 wide redstone wire (back row)
 fill ~-2 ~2 ~5 ~-3 ~2 ~58 redstone_wire
@@ -176,40 +179,25 @@ setblock ~-15 ~2 ~58 packed_ice
 
 
 
-##=============================================================================
-## Level 3 (glass and water level)
-
-# glass end area
-setblock ~-5 ~3 ~4 glass
-setblock ~-15 ~3 ~4 glass
+#==============================================================================
+# Level 3 (glass and water level)
+#==============================================================================
 
 # glass for water trough
-fill ~-4 ~3 ~5 ~-4 ~3 ~58 glass
-fill ~-16 ~3 ~5 ~-16 ~3 ~58 glass
+fill ~-4 ~3 ~4 ~-4 ~3 ~58 glass
+fill ~-6 ~3 ~4 ~-6 ~3 ~58 glass
+setblock ~-5 ~2 ~4 glass
 
 # glass for water trough
-fill ~-6 ~3 ~5 ~-6 ~3 ~58 glass
-fill ~-14 ~3 ~5 ~-14 ~3 ~58 glass
-
-# signs above ice
-setblock ~-5 ~3 ~13 oak_wall_sign[facing=east]
-setblock ~-5 ~3 ~22 oak_wall_sign[facing=east]
-setblock ~-5 ~3 ~31 oak_wall_sign[facing=east]
-setblock ~-5 ~3 ~40 oak_wall_sign[facing=east]
-setblock ~-5 ~3 ~49 oak_wall_sign[facing=east]
-setblock ~-5 ~3 ~58 oak_wall_sign[facing=east]
-
-setblock ~-15 ~3 ~13 oak_wall_sign[facing=west]
-setblock ~-15 ~3 ~22 oak_wall_sign[facing=west]
-setblock ~-15 ~3 ~31 oak_wall_sign[facing=west]
-setblock ~-15 ~3 ~40 oak_wall_sign[facing=west]
-setblock ~-15 ~3 ~49 oak_wall_sign[facing=west]
-setblock ~-15 ~3 ~58 oak_wall_sign[facing=west]
+fill ~-14 ~3 ~4 ~-14 ~3 ~58 glass
+fill ~-16 ~3 ~4 ~-16 ~3 ~58 glass
+setblock ~-15 ~2 ~4 glass
 
 
 
-##=============================================================================
-### Clear out the slot areas (clear out equipment, add stairs)
+#==============================================================================
+# Clear out the slot areas (clear out equipment, add stairs)
+#==============================================================================
 
 # Clear out
 fill ~-1 ~ ~13 ~-7 ~ ~13 air
@@ -232,7 +220,6 @@ fill ~ ~2 ~31 ~-4 ~2 ~31 air
 fill ~ ~2 ~40 ~-4 ~2 ~40 air
 fill ~ ~2 ~49 ~-4 ~2 ~49 air
 fill ~ ~2 ~58 ~-4 ~2 ~58 air
-
 
 fill ~-19 ~ ~13 ~-13 ~ ~13 air
 fill ~-19 ~ ~22 ~-13 ~ ~22 air
@@ -371,9 +358,9 @@ fill ~-14 ~-1 ~58 ~-14 ~-1 ~58 air
 
 
 
-##=============================================================================
-## Walk down area
-
+#==============================================================================
+# Walk down area
+#==============================================================================
 
 
 # Stairs on back
@@ -440,7 +427,7 @@ fill ~-13 ~-1 ~3 ~-13 ~-1 ~4 quartz_stairs[facing=east,half=bottom,shape=straigh
 
 
 
-## Far end
+# Far end
 
 # init
 fill ~-1 ~-1 ~59 ~-7 ~-1 ~58 air
@@ -494,13 +481,14 @@ fill ~-18 ~-2 ~58 ~-14 ~-2 ~59 quartz_block
 
 
 
-##=============================================================================
-## Ice, signs, and water conector
+#==============================================================================
+# Horizontal connector
+#==============================================================================
 
 # This is the water trough between the two sorters so water can move
 # from one sorter set of 4 to to the other sorter set of 4
 
-# Trough
+# Far trough
 fill ~-6 ~3 ~59 ~-14 ~3 ~59 glass
 fill ~-4 ~2 ~59 ~-16 ~2 ~60 glass
 fill ~-4 ~3 ~61 ~-16 ~3 ~61 glass
@@ -508,80 +496,87 @@ fill ~-4 ~3 ~59 ~-4 ~3 ~60 glass
 fill ~-16 ~3 ~59 ~-16 ~3 ~60 glass
 
 
-# Create an ice blow in the middle of the trough connecting the two sides
-setblock ~-10 ~2 ~60 packed_ice
-setblock ~-10 ~3 ~60 oak_wall_sign[facing=north]
+
+# Close trough
+fill ~-6 ~3 ~3 ~-14 ~3 ~3 glass
+fill ~-4 ~2 ~3 ~-16 ~2 ~2 glass
+fill ~-4 ~3 ~1 ~-16 ~3 ~1 glass
+fill ~-4 ~3 ~3 ~-4 ~3 ~2 glass
+fill ~-16 ~3 ~3 ~-16 ~3 ~2 glass
 
 
 
-##=============================================================================
-## Just add water
+#==============================================================================
+# Just add water
+#==============================================================================
 
 # down right side
 setblock ~-15 ~3 ~5 water
+
+setblock ~-5 ~3 ~13 stone_pressure_plate
 setblock ~-15 ~3 ~14 water
+
+setblock ~-5 ~3 ~22 stone_pressure_plate
 setblock ~-15 ~3 ~23 water
+
+setblock ~-5 ~3 ~31 stone_pressure_plate
 setblock ~-15 ~3 ~32 water
+
+setblock ~-5 ~3 ~40 stone_pressure_plate
 setblock ~-15 ~3 ~41 water
+
+setblock ~-5 ~3 ~49 stone_pressure_plate
 setblock ~-15 ~3 ~50 water
+
+setblock ~-5 ~3 ~58 stone_pressure_plate
 setblock ~-15 ~3 ~59 water
 
-# coming across
+
+
+# Create an ice blow in the middle of the trough connecting the two sides
+setblock ~-10 ~2 ~60 packed_ice
+setblock ~-10 ~3 ~60 stone_pressure_plate
 setblock ~-9 ~3 ~60 water
 
+# Coming across
+setblock ~-10 ~2 ~2 packed_ice
+setblock ~-10 ~3 ~2 stone_pressure_plate
+setblock ~-11 ~3 ~2 water
+
+
+
 # back up left side
+
+setblock ~-15 ~3 ~58 stone_pressure_plate
 setblock ~-5 ~3 ~57 water
+
+setblock ~-15 ~3 ~49 stone_pressure_plate
 setblock ~-5 ~3 ~48 water
+
+setblock ~-15 ~3 ~40 stone_pressure_plate
 setblock ~-5 ~3 ~39 water
+
+setblock ~-15 ~3 ~31 stone_pressure_plate
 setblock ~-5 ~3 ~30 water
+
+setblock ~-15 ~3 ~22 stone_pressure_plate
 setblock ~-5 ~3 ~21 water
+
+setblock ~-15 ~3 ~13 stone_pressure_plate
 setblock ~-5 ~3 ~12 water
 
+setblock ~-5 ~2 ~4 packed_ice
+setblock ~-5 ~3 ~4 stone_pressure_plate
+setblock ~-5 ~3 ~3 water
 
-
-##=============================================================================
-## Level 4+ (dispenser)
-setblock ~-14 ~4 ~5 dispenser[facing=west]
-fill ~-14 ~5 ~5 ~-14 ~8 ~5 hopper
-
-setblock ~-15 ~4 ~4 glass
-setblock ~-16 ~4 ~5 glass
-setblock ~-15 ~5 ~5 glass
-
-# Dispenser redstone circuit (these are in order when looking at observer face)
-
-# bottom right of 5, just behind it, and on it
-setblock ~-14 ~3 ~4 quartz_block
-setblock ~-14 ~4 ~4 comparator[facing=south]
-setblock ~-13 ~3 ~4 quartz_block
-
-# between bottom left and bottom right of five, but one back
-setblock ~-13 ~3 ~3 quartz_block
-setblock ~-13 ~4 ~3 repeater[facing=north]
-
-# bottom left of 5
-setblock ~-14 ~3 ~2 quartz_block
-setblock ~-14 ~4 ~2 redstone_wire
-
-# middle of 5, two to the left of the dispenser
-setblock ~-14 ~4 ~3 quartz_block
-setblock ~-14 ~5 ~3 redstone_wire
-
-# just to the left of middle of 5, but one back
-setblock ~-13 ~4 ~2 quartz_block
-
-# upper right of 5 (edge touches dispenser)
-setblock ~-14 ~5 ~4 quartz_block
-
-# upper left of 5
-setblock ~-14 ~5 ~2 quartz_block
-
-setblock ~-13 ~4 ~4 redstone_wire
+setblock ~-15 ~2 ~4 packed_ice
+setblock ~-15 ~3 ~4 stone_pressure_plate
 
 
 
-##=============================================================================
-## Finishing touches
+#==============================================================================
+# Finishing touches
+#==============================================================================
 
 # Front
 fill ~ ~-1 ~1 ~-20 ~-1 ~1 quartz_block
@@ -627,11 +622,73 @@ fill ~-12 ~-1 ~5 ~-12 ~-1 ~58 glowstone
 #==============================================================================
 # Inbound Connection
 #==============================================================================
-setblock ~-15 ~7 ~5 hopper[facing=east]
-fill ~-14 ~8 ~4 ~-20 ~8 ~4 glass
-setblock ~-16 ~7 ~5 packed_ice
-fill ~-17 ~7 ~5 ~-20 ~7 ~5 glass
-fill ~-14 ~8 ~6 ~-20 ~8 ~6 glass
+
+
+#------------------------------------------------------------------------------
+# Dispenser
+#------------------------------------------------------------------------------
+setblock ~-16 ~4 ~5 dispenser[facing=east]
+setblock ~-14 ~4 ~5 glass
+setblock ~-15 ~5 ~5 glass
+setblock ~-15 ~4 ~4 glass
+setblock ~-15 ~4 ~6 glass
+setblock ~-15 ~5 ~6 glass
+
+
+#------------------------------------------------------------------------------
+# Dispenser redstone circuit (these are in order when looking at observer back)
+#------------------------------------------------------------------------------
+
+# bottom right of 5, just in front of it, and on it
+setblock ~-16 ~3 ~4 quartz_block
+setblock ~-16 ~4 ~4 comparator[facing=south]
+setblock ~-17 ~3 ~4 quartz_block
+
+# between bottom left and bottom right of five, but in front
+setblock ~-17 ~3 ~3 quartz_block
+setblock ~-17 ~4 ~3 repeater[facing=north,delay=2]
+
+# bottom left of 5
+setblock ~-16 ~3 ~2 quartz_block
+setblock ~-16 ~4 ~2 redstone_wire
+
+# middle of 5, two to the left of the dispenser
+setblock ~-16 ~4 ~3 quartz_block
+setblock ~-16 ~5 ~3 redstone_wire
+
+# just to the left of middle of 5, but in front
+setblock ~-17 ~4 ~2 quartz_block
+
+# upper right of 5 (edge touches dispenser)
+setblock ~-16 ~5 ~4 quartz_block
+
+# upper left of 5
+setblock ~-16 ~5 ~2 quartz_block
+
+setblock ~-17 ~4 ~4 redstone_wire
+
+
+#------------------------------------------------------------------------------
+# Canal channel extended to support chest/minecart/smelter input
+#------------------------------------------------------------------------------
+
+# Front side of water
+fill ~-20 ~6 ~4 ~-16 ~6 ~4 glass
+# Bottom of water
+fill ~-20 ~5 ~5 ~-17 ~5 ~5 glass
+# Far side of water
+fill ~-20 ~6 ~6 ~-16 ~6 ~6 glass
+
+
+# Hopper above dispenser with glass behind it to catch flow
+setblock ~-16 ~5 ~5 hopper
+setblock ~-15 ~6 ~5 glass
+
+
+# Canal water
+setblock ~-20 ~5 ~5 packed_ice
+setblock ~-20 ~6 ~5 stone_pressure_plate
+setblock ~-19 ~6 ~5 water
 
 
 
@@ -640,7 +697,7 @@ fill ~-14 ~8 ~6 ~-20 ~8 ~6 glass
 #==============================================================================
 
 #------------------------------------------------------------------------------
-# Right hand side next to last set
+# Furnace group 5
 #------------------------------------------------------------------------------
 fill ~-10 ~-3 ~39 ~-14 ~-6 ~43 air
 
@@ -684,40 +741,8 @@ setblock ~-18 ~-4 ~41 water
 
 
 
-# Vertical tower base
-fill ~-21 ~-6 ~40 ~-25 ~9 ~43 air
-
-
-# Lowest level
-setblock ~-24 ~-6 ~41 soul_sand
-
-# Lower level
-fill ~-21 ~-5 ~40 ~-25 ~-5 ~43 glass
-setblock ~-23 ~-5 ~41 packed_ice
-setblock ~-24 ~-5 ~41 air
-
-# Mid level
-fill ~-21 ~-4 ~40 ~-25 ~-4 ~40 glass
-setblock ~-23 ~-4 ~41 smooth_stone_slab[type=top]
-setblock ~-25 ~-4 ~41 glass
-setblock ~-21 ~-4 ~42 glass
-setblock ~-25 ~-4 ~42 glass
-fill ~-21 ~-4 ~43 ~-25 ~-4 ~43 glass
-
-# Tower
-fill ~-24 ~-3 ~40 ~-24 ~10 ~40 glass
-fill ~-23 ~-3 ~41 ~-23 ~10 ~41 glass
-fill ~-25 ~-3 ~41 ~-25 ~10 ~41 glass
-fill ~-24 ~-3 ~42 ~-24 ~9 ~42 glass
-setblock ~-24 ~11 ~41 glass
-
-# Fill tower
-fill ~-24 ~-5 ~41 ~-24 ~10 ~41 water
-
-
-
 #------------------------------------------------------------------------------
-# Right hand side last set
+# Furnace group 6
 #------------------------------------------------------------------------------
 fill ~-10 ~-3 ~48 ~-14 ~-6 ~52 air
 
@@ -761,72 +786,121 @@ setblock ~-18 ~-4 ~50 water
 
 
 
-# Vertical tower base
-fill ~-21 ~-6 ~49 ~-25 ~9 ~52 air
+#==============================================================================
+# Prime
+#==============================================================================
+
+data merge block ~-15 ~2 ~5 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~6 {Items:[{Slot:0b,id:"smooth_stone",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~7 {Items:[{Slot:0b,id:"andesite",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~8 {Items:[{Slot:0b,id:"diorite",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~9 {Items:[{Slot:0b,id:"granite",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~10 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~11 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~12 {Items:[{Slot:0b,id:"gravel",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+
+data merge block ~-15 ~2 ~14 {Items:[{Slot:0b,id:"oak_planks",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~15 {Items:[{Slot:0b,id:"spruce_planks",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~16 {Items:[{Slot:0b,id:"birch_planks",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~17 {Items:[{Slot:0b,id:"jungle_planks",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~18 {Items:[{Slot:0b,id:"acacia_planks",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~19 {Items:[{Slot:0b,id:"dark_oak_planks",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~20 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~21 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+
+data merge block ~-15 ~2 ~23 {Items:[{Slot:0b,id:"glass",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~24 {Items:[{Slot:0b,id:"chest",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~25 {Items:[{Slot:0b,id:"white_wool",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~26 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~27 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~28 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~29 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~30 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+
+data merge block ~-15 ~2 ~32 {Items:[{Slot:0b,id:"carrot",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~33 {Items:[{Slot:0b,id:"melon_slice",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~34 {Items:[{Slot:0b,id:"pumpkin",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~35 {Items:[{Slot:0b,id:"cooked_chicken",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~36 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~37 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~38 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~39 {Items:[{Slot:0b,id:"apple",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+
+data merge block ~-15 ~2 ~41 {Items:[{Slot:0b,id:"sand",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~42 {Items:[{Slot:0b,id:"cobblestone",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~43 {Items:[{Slot:0b,id:"iron_ore",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~44 {Items:[{Slot:0b,id:"gold_ore",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~45 {Items:[{Slot:0b,id:"netherrack",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~46 {Items:[{Slot:0b,id:"clay",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~47 {Items:[{Slot:0b,id:"stone",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~48 {Items:[{Slot:0b,id:"sand",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+
+data merge block ~-15 ~2 ~50 {Items:[{Slot:0b,id:"sand",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~51 {Items:[{Slot:0b,id:"sand",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~52 {Items:[{Slot:0b,id:"sand",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~53 {Items:[{Slot:0b,id:"sand",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~54 {Items:[{Slot:0b,id:"sand",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~55 {Items:[{Slot:0b,id:"sand",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~56 {Items:[{Slot:0b,id:"sand",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-15 ~2 ~57 {Items:[{Slot:0b,id:"sand",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
 
 
-# Lowest level
-setblock ~-24 ~-6 ~50 soul_sand
-
-# Lower level
-fill ~-21 ~-5 ~49 ~-25 ~-5 ~52 glass
-setblock ~-23 ~-5 ~50 packed_ice
-setblock ~-24 ~-5 ~50 air
-
-# Mid level
-fill ~-21 ~-4 ~49 ~-25 ~-4 ~49 glass
-setblock ~-23 ~-4 ~50 smooth_stone_slab[type=top]
-setblock ~-25 ~-4 ~50 glass
-setblock ~-21 ~-4 ~51 glass
-setblock ~-25 ~-4 ~51 glass
-fill ~-21 ~-4 ~52 ~-25 ~-4 ~52 glass
-
-# Tower
-fill ~-24 ~-3 ~49 ~-24 ~9 ~49 glass
-fill ~-23 ~-3 ~50 ~-23 ~10 ~50 glass
-fill ~-25 ~-3 ~50 ~-25 ~10 ~50 glass
-fill ~-24 ~-3 ~51 ~-24 ~10 ~51 glass
-setblock ~-24 ~11 ~50 glass
-
-# Fill tower
-fill ~-24 ~-5 ~50 ~-24 ~10 ~50 water
 
 
+data merge block ~-5 ~2 ~5 {Items:[{Slot:0b,id:"iron_ore",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~6 {Items:[{Slot:0b,id:"gold_ore",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~7 {Items:[{Slot:0b,id:"diamond_ore",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~8 {Items:[{Slot:0b,id:"emerald_ore",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~9 {Items:[{Slot:0b,id:"coal_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~10 {Items:[{Slot:0b,id:"glowstone",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~11 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~12 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+
+data merge block ~-5 ~2 ~14 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~15 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~16 {Items:[{Slot:0b,id:"comparator",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~17 {Items:[{Slot:0b,id:"repeater",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~18 {Items:[{Slot:0b,id:"hopper",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~19 {Items:[{Slot:0b,id:"powered_rail",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~20 {Items:[{Slot:0b,id:"rail",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~21 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+
+data merge block ~-5 ~2 ~23 {Items:[{Slot:0b,id:"piston",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~24 {Items:[{Slot:0b,id:"sticky_piston",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~25 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~26 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~27 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~28 {Items:[{Slot:0b,id:"book",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~29 {Items:[{Slot:0b,id:"paper",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~30 {Items:[{Slot:0b,id:"sugar_cane",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+
+data merge block ~-5 ~2 ~32 {Items:[{Slot:0b,id:"string",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~33 {Items:[{Slot:0b,id:"feather",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~34 {Items:[{Slot:0b,id:"spider_eye",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~35 {Items:[{Slot:0b,id:"bone",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~36 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~37 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~38 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~39 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:5}]}
+
+data merge block ~-5 ~2 ~41 {Items:[{Slot:0b,id:"carrot",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~42 {Items:[{Slot:0b,id:"melon_slice",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~43 {Items:[{Slot:0b,id:"pumpkin",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~44 {Items:[{Slot:0b,id:"cooked_chicken",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~45 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~46 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~47 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~48 {Items:[{Slot:0b,id:"apple",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+
+data merge block ~-5 ~2 ~50 {Items:[{Slot:0b,id:"carrot",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~51 {Items:[{Slot:0b,id:"melon_slice",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~52 {Items:[{Slot:0b,id:"pumpkin",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~53 {Items:[{Slot:0b,id:"cooked_chicken",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~54 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~55 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~56 {Items:[{Slot:0b,id:"grass_block",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
+data merge block ~-5 ~2 ~57 {Items:[{Slot:0b,id:"apple",Count:41b},{Slot:1b,id:"cobblestone_slab",Count:1b},{Slot:2b,id:"cobblestone_slab",Count:1b},{Slot:3b,id:"cobblestone_slab",Count:1b},{Slot:4b,id:"cobblestone_slab",Count:1b}]}
 
 
-#------------------------------------------------------------------------------
-# East/west horizontal
-#------------------------------------------------------------------------------
 
-# Mini north/south connectors
-fill ~-23 ~10 ~42 ~-23 ~10 ~44 glass
-fill ~-24 ~9 ~43 ~-24 ~9 ~44 glass
-fill ~-25 ~10 ~42 ~-25 ~10 ~44 glass
-
-fill ~-23 ~10 ~49 ~-23 ~10 ~47 glass
-fill ~-24 ~9 ~48 ~-24 ~9 ~47 glass
-fill ~-25 ~10 ~49 ~-25 ~10 ~47 glass
-
-# End, bottom, and sides
-fill ~-23 ~9 ~45 ~-23 ~9 ~46 glass
-fill ~-23 ~9 ~44 ~-53 ~9 ~44 glass
-fill ~-23 ~8 ~45 ~-53 ~8 ~45 glass
-fill ~-23 ~8 ~46 ~-53 ~8 ~45 glass
-fill ~-23 ~9 ~47 ~-53 ~9 ~47 glass
-
-# Water
-
-fill ~-32 ~8 ~45 ~-32 ~8 ~46 packed_ice
-fill ~-32 ~9 ~45 ~-32 ~9 ~46 stone_pressure_plate
-fill ~-33 ~9 ~45 ~-33 ~9 ~46 water
-
-fill ~-40 ~8 ~45 ~-40 ~8 ~46 packed_ice
-fill ~-40 ~9 ~45 ~-40 ~9 ~46 stone_pressure_plate
-fill ~-41 ~9 ~45 ~-41 ~9 ~46 water
-
-fill ~-49 ~8 ~45 ~-49 ~8 ~46 packed_ice
-fill ~-49 ~9 ~45 ~-49 ~9 ~46 stone_pressure_plate
-fill ~-50 ~9 ~45 ~-50 ~9 ~46 water
-
-
-tp ~-27 ~-2 ~51
+# tp ~-21 ~ ~1
